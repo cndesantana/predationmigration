@@ -1,0 +1,12 @@
+\beamer@endinputifotherversion {3.24pt}
+\beamer@sectionintoc {1}{\scshape Motivation}{3}{0}{1}
+\beamer@sectionintoc {2}{\scshape The Model}{7}{0}{2}
+\beamer@subsectionintoc {2}{1}{The Model}{7}{0}{2}
+\beamer@subsectionintoc {2}{2}{Predation}{10}{0}{2}
+\beamer@subsectionintoc {2}{3}{Migration}{11}{0}{2}
+\beamer@sectionintoc {3}{\scshape Simulations}{12}{0}{3}
+\beamer@subsectionintoc {3}{1}{Steady State}{14}{0}{3}
+\beamer@subsectionintoc {3}{2}{Resilience study}{22}{0}{3}
+\beamer@subsectionintoc {3}{3}{Space of Parameters}{31}{0}{3}
+\beamer@subsectionintoc {3}{4}{Metabolic Theory of Ecology}{34}{0}{3}
+\beamer@sectionintoc {4}{\scshape Conclusions}{41}{0}{4}

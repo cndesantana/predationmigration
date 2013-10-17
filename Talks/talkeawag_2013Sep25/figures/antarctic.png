@@ -1,0 +1,12 @@
+--2013-02-02 10:33:27--  http://media.gmi.co.nz/images/OurFarSouth/Articles/ice-block-1.png
+Resolving media.gmi.co.nz (media.gmi.co.nz)... 202.134.48.141
+Connecting to media.gmi.co.nz (media.gmi.co.nz)|202.134.48.141|:80... connected.
+HTTP request sent, awaiting response... 200 OK
+Length: 60961 (60K) [image/png]
+Saving to: `ice-block-1.png.1'
+
+     0K .......... .......... .......... .......... .......... 83% 35.1K 0s
+    50K .........                                             100% 1.28M=1.4s
+
+2013-02-02 10:33:29 (41.6 KB/s) - `ice-block-1.png.1' saved [60961/60961]
+

@@ -1,0 +1,1520 @@
+%!PS-Adobe-3.0 EPSF-3.0
+%%Title: 1. snnf.net (100)
+%%Creator: Pajek: http://vlado.fmf.uni-lj.si/pub/networks/pajek/
+%%CreationDate: 04-05-2011, 14:49:17
+%%BoundingBox: 0 0 1448 822
+%
+%!PS
+% Color Dictionary / adapted from color.pro
+% Graph Dictionary / drawing graphs
+% --------------------------------------------
+% Vladimir Batagelj
+% version 0: 27 mar 1994 experimental version
+% version 1: 12 nov 1994 basic set (color, a, e, ... )
+% version 2: 25 dec 1994 extensions
+% version 3:  5 jan 1995 arct/arcto - level2/level1 --> *arct
+% version 4: 12 jan 1995 ce, empty
+% version  : 28 dec 1997 pajkec, tri
+%
+
+/ColorDict 150 dict def
+
+ColorDict begin
+ /B {bind def} def
+ /GreenYellow   {0.15 0    0.69 0    }def
+ /Yellow        {0    0    1    0    }def
+ /Goldenrod     {0    0.10 0.84 0    }def
+ /Dandelion     {0    0.29 0.84 0    }def
+ /Apricot       {0    0.32 0.52 0    }def
+ /Peach         {0    0.50 0.70 0    }def
+ /Melon         {0    0.46 0.50 0    }def
+ /YellowOrange  {0    0.42 1    0    }def
+ /Orange        {0    0.61 0.87 0    }def
+ /BurntOrange   {0    0.51 1    0    }def
+ /Bittersweet   {0    0.75 1    0.24 }def
+ /RedOrange     {0    0.77 0.87 0    }def
+ /Mahogany      {0    0.85 0.87 0.35 }def
+ /Maroon        {0    0.87 0.68 0.32 }def
+ /BrickRed      {0    0.89 0.94 0.28 }def
+ /Red           {0    1    1    0    }def
+ /OrangeRed     {0    1    0.50 0    }def
+ /RubineRed     {0    1    0.13 0    }def
+ /WildStrawberry{0    0.96 0.39 0    }def
+ /Salmon        {0    0.53 0.38 0    }def
+ /CarnationPink {0    0.63 0    0    }def
+ /Magenta       {0    1    0    0    }def
+ /VioletRed     {0    0.81 0    0    }def
+ /Rhodamine     {0    0.82 0    0    }def
+ /Mulberry      {0.34 0.90 0    0.02 }def
+ /RedViolet     {0.07 0.90 0    0.34 }def
+ /Fuchsia       {0.47 0.91 0    0.08 }def
+ /Lavender      {0    0.48 0    0    }def
+ /Thistle       {0.12 0.59 0    0    }def
+ /Orchid        {0.32 0.64 0    0    }def
+ /DarkOrchid    {0.40 0.80 0.20 0    }def
+ /Purple        {0.45 0.86 0    0    }def
+ /Plum          {0.50 1    0    0    }def
+ /Violet        {0.79 0.88 0    0    }def
+ /RoyalPurple   {0.75 0.90 0    0    }def
+ /BlueViolet    {0.86 0.91 0    0.04 }def
+ /Periwinkle    {0.57 0.55 0    0    }def
+ /CadetBlue     {0.62 0.57 0.23 0    }def
+ /CornflowerBlue{0.65 0.13 0    0    }def
+ /MidnightBlue  {0.98 0.13 0    0.43 }def
+ /NavyBlue      {0.94 0.54 0    0    }def
+ /RoyalBlue     {1    0.50 0    0    }def
+ /Blue          {1    1    0    0    }def
+ /Cerulean      {0.94 0.11 0    0    }def
+ /Cyan          {1    0    0    0    }def
+ /ProcessBlue   {0.96 0    0    0    }def
+ /SkyBlue       {0.62 0    0.12 0    }def
+ /Turquoise     {0.85 0    0.20 0    }def
+ /TealBlue      {0.86 0    0.34 0.02 }def
+ /Aquamarine    {0.82 0    0.30 0    }def
+ /BlueGreen     {0.85 0    0.33 0    }def
+ /Emerald       {1    0    0.50 0    }def
+ /JungleGreen   {0.99 0    0.52 0    }def
+ /SeaGreen      {0.69 0    0.50 0    }def
+ /Green         {1    0    1    0    }def
+ /ForestGreen   {0.91 0    0.88 0.12 }def
+ /PineGreen     {0.92 0    0.59 0.25 }def
+ /LimeGreen     {0.50 0    1    0    }def
+ /YellowGreen   {0.44 0    0.74 0    }def
+ /SpringGreen   {0.26 0    0.76 0    }def
+ /OliveGreen    {0.64 0    0.95 0.40 }def
+ /RawSienna     {0 0.72    1    0.45 }def
+ /Sepia         {0 0.83    1    0.70 }def
+ /Brown         {0 0.81    1    0.60 }def
+ /Tan           {0.14 0.42 0.56 0    }def
+ /Gray          {0    0    0    0.50 }def
+ /Black         {0    0    0    1    }def
+ /White         {0    0    0    0    }def
+ /LightYellow   {0    0    0.4  0    }def
+ /LightCyan     {0.2  0    0    0    }def
+ /LightMagenta  {0    0.2  0    0    }def
+ /LightPurple   {0.2  0.2  0    0    }def
+ /LightGreen    {0.2  0    0.3  0    }def
+ /LightOrange   {0    0.2  0.3  0    }def
+ /Canary        {0    0    0.50 0    }def
+ /LFadedGreen   {0.10 0    0.20 0    }def
+ /Pink          {0    0.15 0.05 0    }def
+ /LSkyBlue      {0.15 0.05 0    0    }def
+ /Gray05        {0    0    0    0.05 }def
+ /Gray10        {0    0    0    0.10 }def
+ /Gray15        {0    0    0    0.15 }def
+ /Gray20        {0    0    0    0.20 }def
+ /Gray25        {0    0    0    0.25 }def
+ /Gray30        {0    0    0    0.30 }def
+ /Gray35        {0    0    0    0.35 }def
+ /Gray40        {0    0    0    0.40 }def
+ /Gray45        {0    0    0    0.45 }def
+ /Gray50        {0    0    0    0.50 }def
+ /Gray55        {0    0    0    0.55 }def
+ /Gray60        {0    0    0    0.60 }def
+ /Gray65        {0    0    0    0.65 }def
+ /Gray70        {0    0    0    0.70 }def
+ /Gray75        {0    0    0    0.75 }def
+ /Gray80        {0    0    0    0.80 }def
+ /Gray85        {0    0    0    0.85 }def
+ /Gray90        {0    0    0    0.90 }def
+ /Gray95        {0    0    0    0.95 }def
+end
+
+/GraphPic 50 dict def
+
+GraphPic begin
+% level1/level2
+  /arct* {arcto 4 {pop} repeat} bind def
+
+  /languagelevel where
+    {pop languagelevel}{1} ifelse
+  2 lt {
+    /*arct /arct* load def
+  }{
+    /*arct /arct load def
+  } ifelse
+
+% Parameters
+  /fos 15 def          % font size
+  /h  9 def            % arrow height
+  /d 10 def            % arrow depth
+  /o  5 def            % arrow width
+  /ic { White } def    % interior color (fill)
+  /bc { Black } def    % boundary color
+  /bw { 1 } def        % boundary width
+  /r  { 5 } def        % oval radius
+  /q  { 0.5 } def      % hexagon
+  /setFontSize { /fos exch def } def
+  /setArrHeight { /h exch def } def
+  /setArrDepth { /d exch def } def
+  /setArrWidth { /o exch def } def
+% Dash Patterns
+  /Solid { [ ] 0 } def
+  /Dashed { [4 3] 2 } def
+  /Dots { [3 6] 2 } def
+  /c {setcmykcolor} def
+% labels
+  /l { % text angle x y
+    gsave moveto rotate c show grestore } def
+  /cl { % text angle x y
+    gsave moveto rotate c dup stringwidth exch 2 div neg exch fos add
+    2.5 div neg rmoveto show grestore } def
+% arrows
+  /arrowA { newpath -10 0 moveto 15 h lineto d 0 lineto 15 h neg lineto
+    closepath gsave fill grestore 0 setlinejoin 0.1 setlinewidth stroke } def
+  /arrowB { /Bl { h h mul 625 add sqrt } bind def /Bd { -10 o Bl mul h div
+    add} bind def /Bg { h o Bl mul 25 div sub } bind def newpath 15 h moveto
+    -10 0 lineto 15 h neg lineto 15 Bg neg lineto Bd 0 lineto 15 Bg lineto
+    closepath gsave fill grestore 0 setlinejoin 0.1 setlinewidth Solid
+    setdash stroke } def
+  /ArrowA {  % size alpha x y
+    gsave translate pop rotate 0.2 mul dup scale arrowA grestore } def
+  /ArrowB {  %   alpha x y
+    gsave translate pop rotate 0.2 mul dup scale arrowB grestore } def
+% vertex
+  /v { % bndcolor w intcolor x y radius
+    0 360 arc gsave c fill grestore setlinewidth c stroke } def
+% edge
+  /e { % width color dashpat u1 v1 u2 v2 x2 y2 x1 y1
+    moveto curveto setdash c setlinewidth stroke } def
+% oval edge
+  /oe { % width color dashpat r u1 v1 x2 y2 x1 y1
+    moveto 2 copy 7 1 roll 7 1 roll 5 -1 roll *arct
+    lineto setdash c setlinewidth stroke } def
+% circular edge
+  /ce { % width color dashpat x y r a1 a2
+    arc setdash c setlinewidth stroke } def
+% straight edge
+  /se { % width color dashpat x2 y2 x1 y1
+    moveto lineto setdash c setlinewidth stroke } def
+% double edge
+  /de { % width color dashpat x2 y2 x1 y1
+    moveto lineto setdash c /q_a exch def
+    gsave q_a 5.5 mul setlinewidth stroke grestore
+    White c q_a 3 mul setlinewidth stroke} def
+% arc
+  /a { % arrow size angle width color dashpat u1 v1 u2 v2 x2 y2 x1 y1
+    moveto curveto setdash c dup setlinewidth currentpoint 6 -1 roll
+    cvx exec stroke } def
+% straight arc
+  /sa { % arrow size angle width color dashpat x2 y2 x1 y1
+    moveto lineto setdash c dup setlinewidth currentpoint 6 -1 roll
+    cvx exec stroke } def
+% circle
+  /circle {
+    0 0 10 0 360 arc gsave ic c fill grestore bw setlinewidth
+    bc c stroke } def
+% square
+  /square { -10 -10 moveto 0 20 rlineto 20 0 rlineto 0 -20 rlineto
+    -20 0 rlineto gsave ic c fill grestore bw setlinewidth bc c stroke } def
+% cross
+  /cross { 0 -10 moveto 0 20 rlineto -10 0 moveto 20 0 rlineto
+     bw setlinewidth bc c stroke } def
+% box
+  /box { % a b
+    /q_b exch def /q_a exch def newpath 0 q_b moveto q_a neg q_b q_a neg 0 r
+    *arct q_a neg q_b neg  0 q_b neg  r  *arct q_a q_b neg  q_a 0  r  *arct
+    q_a q_b  0 q_b  r  *arct closepath gsave ic c fill
+    grestore bw setlinewidth bc c stroke } def
+% triangle
+  /tria { %
+    /d_b exch def /d_a exch def 
+    /q_b {0.5 d_b mul} def /q_a {0.5 d_a mul} def
+    newpath 
+    q_a neg q_b neg moveto q_a q_b neg lineto 0 q_b lineto
+    closepath gsave ic c fill
+    grestore 
+    bw setlinewidth bc c stroke } def
+% diamond
+  /diamond { % a b
+    /d_b exch def /d_a exch def /d_c {d_a q mul} def
+    newpath 0 d_b moveto d_c neg d_b  d_a neg 0  r  *arct
+    d_a neg 0 d_c neg d_b neg r *arct d_c neg d_b neg d_c d_b neg r *arct
+    d_c d_b neg d_a 0 r *arct d_a 0 d_c d_b r *arct d_c d_b 0 d_b r *arct
+    closepath gsave ic c fill grestore bw setlinewidth
+    bc c stroke } def
+% ellipse
+  /ellipse { % a b
+    /q_b exch def /q_a exch def newpath /m matrix currentmatrix def
+    q_a q_b scale 0 0 1 0 360 arc closepath m setmatrix gsave ic c fill
+    grestore bw setlinewidth bc c stroke } def
+% helicopter
+  /helicopter{ ic c 16 6 false [16 0 0 6 0 0]
+      {<dd ff 00 ff 54 1f 80 03 fb f9 00 1e>} imagemask} def
+% empty
+  /empty { } def
+% figure scaled:   x_size y_size phi x y  fs
+  /fs { gsave translate rotate scale cvx exec grestore } def
+% figure absolute: x_size y_size phi x y  fa
+  /fa { gsave translate rotate 3 -1 roll cvx exec grestore } def
+% pajkec
+  /pajkec {
+%Title: Pajkec
+%Creator: Logo2PS 1.1; Copyright 1997, Vladimir Batagelj
+%CreationDate: Sun Dec 28 23:32:48 1997
+%BoundingBox: 0 0 145 96
+gsave
+/q_b exch def /q_a exch def q_a q_b scale 
+1 setlinecap 1 setlinejoin
+5 setlinewidth
+0.0000 0.0000 0.0000 setrgbcolor
+  7.67  49.98 moveto  31.76  72.76 lineto  46.91  78.63 lineto
+ 57.23  80.49 lineto  72.86  65.23 moveto  65.73  83.25 lineto
+ 57.06  75.49 lineto  56.75  68.65 lineto  76.27  68.03 moveto
+ 75.65  84.50 lineto  93.92  91.02 lineto 107.24  74.87 lineto
+ 80.29  67.72 moveto  89.28  84.81 lineto 104.77  81.70 lineto
+116.23  73.31 lineto 121.18  59.33 lineto  56.75  81.08 moveto
+ 71.31  64.30 lineto stroke  3 setlinewidth
+ 86.18  70.21 moveto  91.45  73.00 lineto  95.78  69.58 lineto
+ 91.14  60.88 moveto  96.09  62.75 lineto  98.26  59.33 lineto
+stroke newpath
+ 81.07  49.08 moveto  87.81  49.08 lineto  93.30  54.38 lineto 
+ 93.30  60.88 lineto  93.30  67.39 lineto  87.81  72.69 lineto 
+ 81.07  72.69 lineto  74.33  72.69 lineto  68.83  67.39 lineto
+ 68.83  60.88 lineto  68.83  54.38 lineto  74.33  49.08 lineto
+ 81.07  49.08 lineto  closepath 
+gsave 0.3922 0.3922 0.3922 setrgbcolor fill grestore
+1 setlinewidth 0.0000 0.0000 0.0000 setrgbcolor stroke
+ 54.63  37.53 moveto  68.53  43.56 lineto  75.39  55.85 lineto
+ 69.90  65.35 lineto  64.41  72.86 lineto  48.60  74.06 lineto
+ 34.71  68.04 lineto  20.81  55.02 lineto  15.95  40.72 lineto
+ 17.44  33.22 lineto  24.92  28.72 lineto  40.73  30.51 lineto
+ 54.63  37.53 lineto  closepath 
+gsave 0.3922 0.3922 0.3922 setrgbcolor fill grestore
+stroke  5 setlinewidth
+ 77.82  50.63 moveto 103.84  59.33 lineto 131.10  43.80 lineto
+139.46  27.95 lineto 139.15  15.83 lineto  35.99   5.27 moveto
+ 47.15  32.92 lineto  61.71  50.01 lineto  70.07  46.90 lineto
+ 82.77  45.04 lineto  83.39  27.02 lineto  65.42  12.11 lineto
+ 68.52  50.63 moveto  91.14  49.39 lineto 103.53  43.17 lineto
+117.16  22.67 lineto 115.30   8.38 lineto stroke
+1.0000 1.0000 1.0000 setrgbcolor
+ 41.57  54.98 moveto  60.16  64.61 lineto  52.41  66.17 moveto
+ 57.99  57.47 lineto stroke 
+ /Helvetica 55 selectfont 
+(Pajek) Red 0.00 5 -40 l
+grestore
+  } def
+
+end
+
+% Straight Arc: type size angle width color pattern x2 y2 x1 y1 sa
+% Bezier Arc: type size angle width color pattern u1 v1 u2 v2 x2 y2 x1 y1 a
+% Straight Edge: width color pattern x2 y2 x1 y1 se
+% Bezier Edge: width color pattern u1 v1 u2 v2 x2 y2 x1 y1 e
+% Vertex: colorbnd widthbnd colorinside x y r v
+% Label: (label) color angle x y cl
+%
+ColorDict begin GraphPic begin
+%
+/fos     15.00  def 
+/Helvetica fos  selectfont
+% Edge:     1    2
+    3.00 Blue Solid   282.30  669.89  430.68  696.80  453.15  707.41  257.53  671.93     e
+% Edge:     1   10
+    3.00 Blue Solid   240.42  664.21  152.25  592.04  141.29  576.79  257.53  671.93     e
+% Edge:     1   11
+    3.00 Blue Solid   279.74  674.79  405.44  726.42  423.25  740.00  257.53  671.93     e
+% Edge:     1   91
+    3.00 Blue Solid   254.01  656.46  209.08  571.29  198.29  559.65  257.53  671.93     e
+% Edge:     1    2
+    3.00 Blue Solid   280.00  682.55  428.39  709.45  453.15  707.41  257.53  671.93     e
+% Edge:     2    3
+    3.00 Blue Solid   475.51  698.33  620.79  680.25  644.69  683.57  453.15  707.41     e
+% Edge:     2   12
+    3.00 Blue Solid   475.14  710.69  598.88  764.49  616.29  778.34  453.15  707.41     e
+% Edge:     2   92
+    3.00 Blue Solid   447.43  692.51  390.46  614.18  378.05  604.15  453.15  707.41     e
+% Edge:     2    3
+    3.00 Blue Solid   477.05  710.73  622.33  692.65  644.69  683.57  453.15  707.41     e
+% Edge:     3    4
+    3.00 Blue Solid   658.01  669.75  757.82  609.66  776.28  604.36  644.69  683.57     e
+% Edge:     3   13
+    3.00 Blue Solid   666.73  685.21  793.35  729.43  811.62  741.87  644.69  683.57     e
+% Edge:     3   93
+    3.00 Blue Solid   638.48  668.99  579.19  593.24  566.52  583.72  644.69  683.57     e
+% Edge:     3    4
+    3.00 Blue Solid   663.14  678.27  762.95  618.18  776.28  604.36  644.69  683.57     e
+% Edge:     4    5
+    3.00 Blue Solid   774.73  589.86  788.44  502.50  794.35  489.18  776.28  604.36     e
+% Edge:     4   14
+    3.00 Blue Solid   798.03  605.59  923.58  646.98  941.80  658.92  776.28  604.36     e
+% Edge:     4   94
+    3.00 Blue Solid   770.68  588.88  713.60  506.97  701.02  496.36  776.28  604.36     e
+% Edge:     4    5
+    3.00 Blue Solid   782.18  591.03  795.89  503.67  794.35  489.18  776.28  604.36     e
+% Edge:     5    6
+    3.00 Blue Solid   772.70  479.14  661.60  386.35  647.88  366.84  794.35  489.18     e
+% Edge:     5   15
+    3.00 Blue Solid   817.07  491.10  947.27  538.09  965.99  551.13  794.35  489.18     e
+% Edge:     5   95
+    3.00 Blue Solid   788.65  469.43  724.25  362.67  709.44  348.42  794.35  489.18     e
+% Edge:     5    6
+    3.00 Blue Solid   780.62  469.67  669.52  376.87  647.88  366.84  794.35  489.18     e
+% Edge:     6    7
+    3.00 Blue Solid   622.20  368.82  468.61  340.12  445.39  329.00  647.88  366.84     e
+% Edge:     6   16
+    3.00 Blue Solid   676.32  370.28  837.65  435.12  860.57  452.33  647.88  366.84     e
+% Edge:     6   96
+    3.00 Blue Solid   644.00  350.78  596.04  262.75  584.65  250.78  647.88  366.84     e
+% Edge:     6    7
+    3.00 Blue Solid   624.65  355.72  471.06  327.01  445.39  329.00  647.88  366.84     e
+% Edge:     7    8
+    3.00 Blue Solid   424.69  339.58  286.75  369.09  263.53  367.90  445.39  329.00     e
+% Edge:     7   17
+    3.00 Blue Solid   468.25  332.29  597.08  387.48  615.24  401.76  445.39  329.00     e
+% Edge:     7   97
+    3.00 Blue Solid   443.05  314.49  406.56  233.14  397.28  221.74  445.39  329.00     e
+% Edge:     7    8
+    3.00 Blue Solid   422.17  327.81  284.23  357.32  263.53  367.90  445.39  329.00     e
+% Edge:     8    9
+    3.00 Blue Solid   253.17  382.64  169.30  452.73  152.96  460.31  263.53  367.90     e
+% Edge:     8   18
+    3.00 Blue Solid   283.77  371.63  396.57  425.25  412.23  438.60  263.53  367.90     e
+% Edge:     8   98
+    3.00 Blue Solid   260.83  353.18  221.88  271.10  212.18  259.69  263.53  367.90     e
+% Edge:     8    9
+    3.00 Blue Solid   247.19  375.48  163.32  445.57  152.96  460.31  263.53  367.90     e
+% Edge:     9   10
+    3.00 Blue Solid   155.32  474.75  146.47  563.10  141.29  576.79  152.96  460.31     e
+% Edge:     9   19
+    3.00 Blue Solid   173.63  463.85  289.21  517.10  305.34  530.51  152.96  460.31     e
+% Edge:     9   99
+    3.00 Blue Solid   147.94  444.70   93.99  361.13   81.83  350.12  152.96  460.31     e
+% Edge:     1   10
+    3.00 Blue Solid   246.58  656.68  158.41  584.52  141.29  576.79  257.53  671.93     e
+% Edge:     9   10
+    3.00 Blue Solid   147.78  473.99  138.93  562.35  141.29  576.79  152.96  460.31     e
+% Edge:    10   20
+    3.00 Blue Solid   163.99  579.14  293.36  628.57  311.84  641.96  141.29  576.79     e
+% Edge:    10  100
+    3.00 Blue Solid   137.11  561.30   88.27  477.11   76.90  465.79  141.29  576.79     e
+% Edge:     1   11
+    3.00 Blue Solid   275.34  685.51  401.03  737.14  423.25  740.00  257.53  671.93     e
+% Edge:    11   12
+    3.00 Blue Solid   447.79  738.38  594.22  767.46  616.29  778.34  423.25  740.00     e
+% Edge:    11   20
+    3.00 Blue Solid   406.62  731.76  322.12  657.40  311.84  641.96  423.25  740.00     e
+% Edge:    11   21
+    3.00 Blue Solid   448.14  746.08  603.59  742.67  628.18  735.50  423.25  740.00     e
+% Edge:     2   12
+    3.00 Blue Solid   470.55  721.25  594.30  775.05  616.29  778.34  453.15  707.41     e
+% Edge:    11   12
+    3.00 Blue Solid   445.31  750.87  591.74  779.95  616.29  778.34  423.25  740.00     e
+% Edge:    12   13
+    3.00 Blue Solid   638.69  767.61  786.85  739.95  811.62  741.87  616.29  778.34     e
+% Edge:    12   22
+    3.00 Blue Solid   640.90  784.84  795.38  784.33  819.94  777.66  616.29  778.34     e
+% Edge:     3   13
+    3.00 Blue Solid   662.96  696.01  789.58  740.23  811.62  741.87  644.69  683.57     e
+% Edge:    12   13
+    3.00 Blue Solid   641.05  780.25  789.21  752.59  811.62  741.87  616.29  778.34     e
+% Edge:    13   14
+    3.00 Blue Solid   824.65  727.64  923.40  664.72  941.80  658.92  811.62  741.87     e
+% Edge:    13   23
+    3.00 Blue Solid   836.24  748.80  991.44  750.75 1016.23  744.45  811.62  741.87     e
+% Edge:     4   14
+    3.00 Blue Solid   794.50  616.30  920.05  657.69  941.80  658.92  776.28  604.36     e
+% Edge:    13   14
+    3.00 Blue Solid   830.02  736.06  928.77  673.15  941.80  658.92  811.62  741.87     e
+% Edge:    14   15
+    3.00 Blue Solid   941.23  645.12  959.58  563.36  965.99  551.13  941.80  658.92     e
+% Edge:    14   24
+    3.00 Blue Solid   965.60  664.14 1113.27  657.38 1136.49  650.01  941.80  658.92     e
+% Edge:     5   15
+    3.00 Blue Solid   813.07  502.21  943.26  549.20  965.99  551.13  794.35  489.18     e
+% Edge:    14   15
+    3.00 Blue Solid   948.21  646.69  966.55  564.92  965.99  551.13  941.80  658.92     e
+% Edge:    15   16
+    3.00 Blue Solid   950.06  542.61  870.10  467.67  860.57  452.33  965.99  551.13     e
+% Edge:    15   25
+    3.00 Blue Solid   989.30  555.86 1133.37  547.02 1155.93  539.46  965.99  551.13     e
+% Edge:     6   16
+    3.00 Blue Solid   670.79  384.04  832.12  448.89  860.57  452.33  647.88  366.84     e
+% Edge:    15   16
+    3.00 Blue Solid   956.46  535.79  876.49  460.84  860.57  452.33  965.99  551.13     e
+% Edge:    16   17
+    3.00 Blue Solid   829.31  454.16  643.22  415.80  615.24  401.76  860.57  452.33     e
+% Edge:    16   26
+    3.00 Blue Solid   885.31  457.92 1039.13  451.82 1063.35  444.29  860.57  452.33     e
+% Edge:     7   17
+    3.00 Blue Solid   463.54  343.28  592.38  398.47  615.24  401.76  445.39  329.00     e
+% Edge:    16   17
+    3.00 Blue Solid   832.58  438.28  646.50  399.93  615.24  401.76  860.57  452.33     e
+% Edge:    17   18
+    3.00 Blue Solid   591.92  412.77  437.94  440.72  412.23  438.60  615.24  401.76     e
+% Edge:    17   27
+    3.00 Blue Solid   646.71  409.92  844.01  408.32  875.34  399.65  615.24  401.76     e
+% Edge:     8   18
+    3.00 Blue Solid   279.20  381.25  391.99  434.87  412.23  438.60  263.53  367.90     e
+% Edge:    17   18
+    3.00 Blue Solid   589.54  399.64  435.55  427.58  412.23  438.60  615.24  401.76     e
+% Edge:    18   19
+    3.00 Blue Solid   402.30  453.15  321.22  522.87  305.34  530.51  412.23  438.60     e
+% Edge:    18   28
+    3.00 Blue Solid   437.68  445.67  597.99  447.19  623.57  440.59  412.23  438.60     e
+% Edge:     9   19
+    3.00 Blue Solid   169.09  473.71  284.67  526.96  305.34  530.51  152.96  460.31     e
+% Edge:    18   19
+    3.00 Blue Solid   396.35  446.23  315.27  515.95  305.34  530.51  412.23  438.60     e
+% Edge:    19   20
+    3.00 Blue Solid   309.73  543.75  314.67  628.29  311.84  641.96  305.34  530.51     e
+% Edge:    19   29
+    3.00 Blue Solid   328.39  537.63  474.67  543.16  498.19  537.80  305.34  530.51     e
+% Edge:    10   20
+    3.00 Blue Solid   159.78  590.17  289.14  639.61  311.84  641.96  141.29  576.79     e
+% Edge:    11   20
+    3.00 Blue Solid   412.97  724.55  328.47  650.19  311.84  641.96  423.25  740.00     e
+% Edge:    19   20
+    3.00 Blue Solid   302.52  544.17  307.45  628.71  311.84  641.96  305.34  530.51     e
+% Edge:    20   30
+    3.00 Blue Solid   335.27  648.98  483.60  653.34  507.40  647.71  311.84  641.96     e
+% Edge:    11   21
+    3.00 Blue Solid   447.84  732.82  603.29  729.41  628.18  735.50  423.25  740.00     e
+% Edge:    21   22
+    3.00 Blue Solid   652.70  734.38  798.15  766.36  819.94  777.66  628.18  735.50     e
+% Edge:    21   30
+    3.00 Blue Solid   610.76  728.81  519.14  662.22  507.40  647.71  628.18  735.50     e
+% Edge:    21   31
+    3.00 Blue Solid   649.98  733.40  774.47  686.87  792.30  674.16  628.18  735.50     e
+% Edge:    12   22
+    3.00 Blue Solid   640.85  771.67  795.33  771.15  819.94  777.66  616.29  778.34     e
+% Edge:    21   22
+    3.00 Blue Solid   649.97  746.79  795.43  778.77  819.94  777.66  628.18  735.50     e
+% Edge:    22   23
+    3.00 Blue Solid   842.57  767.30  991.45  742.11 1016.23  744.45  819.94  777.66     e
+% Edge:    22   32
+    3.00 Blue Solid   841.75  774.10  963.97  718.97  981.07  704.98  819.94  777.66     e
+% Edge:    13   23
+    3.00 Blue Solid   836.40  735.56  991.60  737.51 1016.23  744.45  811.62  741.87     e
+% Edge:    22   23
+    3.00 Blue Solid   844.72  780.00  993.60  754.81 1016.23  744.45  819.94  777.66     e
+% Edge:    23   24
+    3.00 Blue Solid  1027.69  729.15 1118.92  657.52 1136.49  650.01 1016.23  744.45     e
+% Edge:    23   33
+    3.00 Blue Solid  1038.27  741.40 1162.68  688.91 1180.25  675.25 1016.23  744.45     e
+% Edge:    14   24
+    3.00 Blue Solid   965.02  651.54 1112.70  644.79 1136.49  650.01  941.80  658.92     e
+% Edge:    23   24
+    3.00 Blue Solid  1033.80  736.93 1125.03  665.30 1136.49  650.01 1016.23  744.45     e
+% Edge:    24   25
+    3.00 Blue Solid  1135.26  636.03 1150.00  552.18 1155.93  539.46 1136.49  650.01     e
+% Edge:    24   34
+    3.00 Blue Solid  1158.94  647.38 1286.41  596.71 1304.54  583.20 1136.49  650.01     e
+% Edge:    15   25
+    3.00 Blue Solid   988.54  543.57 1132.62  534.73 1155.93  539.46  965.99  551.13     e
+% Edge:    24   25
+    3.00 Blue Solid  1142.41  637.29 1157.16  553.44 1155.93  539.46 1136.49  650.01     e
+% Edge:    25   26
+    3.00 Blue Solid  1141.67  530.97 1071.45  458.78 1063.35  444.29 1155.93  539.46     e
+% Edge:    25   35
+    3.00 Blue Solid  1176.14  535.47 1288.34  480.34 1303.84  466.78 1155.93  539.46     e
+% Edge:    16   26
+    3.00 Blue Solid   884.79  444.80 1038.61  438.70 1063.35  444.29  860.57  452.33     e
+% Edge:    25   26
+    3.00 Blue Solid  1147.83  524.98 1077.61  452.79 1063.35  444.29 1155.93  539.46     e
+% Edge:    26   27
+    3.00 Blue Solid  1039.21  444.98  896.60  411.12  875.34  399.65 1063.35  444.29     e
+% Edge:    26   36
+    3.00 Blue Solid  1082.79  440.00 1190.01  384.30 1204.70  370.86 1063.35  444.29     e
+% Edge:    17   27
+    3.00 Blue Solid   646.58  393.09  843.87  391.49  875.34  399.65  615.24  401.76     e
+% Edge:    26   27
+    3.00 Blue Solid  1042.10  432.82  899.49  398.95  875.34  399.65 1063.35  444.29     e
+% Edge:    27   28
+    3.00 Blue Solid   846.27  412.74  655.29  443.80  623.57  440.59  875.34  399.65     e
+% Edge:    27   37
+    3.00 Blue Solid   896.56  395.64 1014.61  338.82 1030.98  324.74  875.34  399.65     e
+% Edge:    18   28
+    3.00 Blue Solid   437.81  432.00  598.12  433.52  623.57  440.59  412.23  438.60     e
+% Edge:    27   28
+    3.00 Blue Solid   843.62  396.44  652.64  427.50  623.57  440.59  875.34  399.65     e
+% Edge:    28   29
+    3.00 Blue Solid   611.57  456.39  516.48  530.12  498.19  537.80  623.57  440.59     e
+% Edge:    28   38
+    3.00 Blue Solid   651.65  436.55  809.87  368.73  832.16  351.19  623.57  440.59     e
+% Edge:    19   29
+    3.00 Blue Solid   328.86  525.15  475.14  530.68  498.19  537.80  305.34  530.51     e
+% Edge:    28   29
+    3.00 Blue Solid   605.28  448.28  510.19  522.01  498.19  537.80  623.57  440.59     e
+% Edge:    29   30
+    3.00 Blue Solid   502.86  550.78  509.84  634.14  507.40  647.71  498.19  537.80     e
+% Edge:    29   39
+    3.00 Blue Solid   521.29  535.02  652.29  482.44  670.89  468.48  498.19  537.80     e
+% Edge:    20   30
+    3.00 Blue Solid   335.64  636.33  483.97  640.69  507.40  647.71  311.84  641.96     e
+% Edge:    21   30
+    3.00 Blue Solid   616.44  720.99  524.82  654.40  507.40  647.71  628.18  735.50     e
+% Edge:    29   30
+    3.00 Blue Solid   495.75  551.37  502.73  634.74  507.40  647.71  498.19  537.80     e
+% Edge:    30   40
+    3.00 Blue Solid   529.01  645.84  652.78  600.96  670.56  588.53  507.40  647.71     e
+% Edge:    21   31
+    3.00 Blue Solid   646.02  722.78  770.50  676.26  792.30  674.16  628.18  735.50     e
+% Edge:    31   32
+    3.00 Blue Solid   816.09  671.77  959.28  695.15  981.07  704.98  792.30  674.16     e
+% Edge:    31   40
+    3.00 Blue Solid   774.83  667.76  682.49  602.81  670.56  588.53  792.30  674.16     e
+% Edge:    31   41
+    3.00 Blue Solid   804.19  664.01  857.98  585.87  863.21  571.14  792.30  674.16     e
+% Edge:    22   32
+    3.00 Blue Solid   837.05  763.67  959.27  708.55  981.07  704.98  819.94  777.66     e
+% Edge:    31   32
+    3.00 Blue Solid   814.09  683.99  957.28  707.37  981.07  704.98  792.30  674.16     e
+% Edge:    32   33
+    3.00 Blue Solid  1004.16  694.95 1155.24  672.39 1180.25  675.25  981.07  704.98     e
+% Edge:    32   42
+    3.00 Blue Solid   992.86  694.58 1045.65  615.09 1050.66  600.19  981.07  704.98     e
+% Edge:    23   33
+    3.00 Blue Solid  1033.79  730.78 1158.21  678.30 1180.25  675.25 1016.23  744.45     e
+% Edge:    32   33
+    3.00 Blue Solid  1006.08  707.84 1157.16  685.28 1180.25  675.25  981.07  704.98     e
+% Edge:    33   34
+    3.00 Blue Solid  1192.28  660.11 1286.56  590.30 1304.54  583.20 1180.25  675.25     e
+% Edge:    33   43
+    3.00 Blue Solid  1190.61  663.40 1232.72  577.71 1235.76  562.27 1180.25  675.25     e
+% Edge:    24   34
+    3.00 Blue Solid  1154.62  636.51 1282.09  585.83 1304.54  583.20 1136.49  650.01     e
+% Edge:    33   34
+    3.00 Blue Solid  1198.23  668.15 1292.51  598.34 1304.54  583.20 1180.25  675.25     e
+% Edge:    34   35
+    3.00 Blue Solid  1300.69  569.17 1300.16  480.86 1303.84  466.78 1304.54  583.20     e
+% Edge:    34   44
+    3.00 Blue Solid  1315.59  571.75 1362.33  487.26 1366.16  471.81 1304.54  583.20     e
+% Edge:    25   35
+    3.00 Blue Solid  1171.44  525.90 1283.63  470.77 1303.84  466.78 1155.93  539.46     e
+% Edge:    34   35
+    3.00 Blue Solid  1308.23  569.12 1307.69  480.81 1303.84  466.78 1304.54  583.20     e
+% Edge:    35   36
+    3.00 Blue Solid  1288.77  458.40 1213.57  385.65 1204.70  370.86 1303.84  466.78     e
+% Edge:    35   45
+    3.00 Blue Solid  1315.54  455.60 1366.55  371.74 1371.10  356.21 1303.84  466.78     e
+% Edge:    26   36
+    3.00 Blue Solid  1078.04  430.85 1185.26  375.15 1204.70  370.86 1063.35  444.29     e
+% Edge:    35   36
+    3.00 Blue Solid  1294.98  451.99 1219.77  379.23 1204.70  370.86 1303.84  466.78     e
+% Edge:    36   37
+    3.00 Blue Solid  1182.23  370.91 1050.46  335.92 1030.98  324.74 1204.70  370.86     e
+% Edge:    36   46
+    3.00 Blue Solid  1213.64  359.21 1247.77  276.85 1249.69  262.29 1204.70  370.86     e
+% Edge:    27   37
+    3.00 Blue Solid   891.71  385.57 1009.76  328.74 1030.98  324.74  875.34  399.65     e
+% Edge:    36   37
+    3.00 Blue Solid  1185.22  359.67 1053.45  324.68 1030.98  324.74 1204.70  370.86     e
+% Edge:    37   38
+    3.00 Blue Solid  1007.83  334.36  857.02  354.43  832.16  351.19 1030.98  324.74     e
+% Edge:    37   47
+    3.00 Blue Solid  1039.15  313.08 1068.73  231.91 1069.98  217.73 1030.98  324.74     e
+% Edge:    28   38
+    3.00 Blue Solid   645.86  423.05  804.08  355.24  832.16  351.19  623.57  440.59     e
+% Edge:    37   38
+    3.00 Blue Solid  1006.12  321.50  855.31  341.56  832.16  351.19 1030.98  324.74     e
+% Edge:    38   39
+    3.00 Blue Solid   816.48  370.57  694.16  459.53  670.89  468.48  832.16  351.19     e
+% Edge:    38   48
+    3.00 Blue Solid   841.76  339.15  879.15  253.52  881.44  238.29  832.16  351.19     e
+% Edge:    29   39
+    3.00 Blue Solid   516.80  523.85  647.80  471.26  670.89  468.48  498.19  537.80     e
+% Edge:    38   39
+    3.00 Blue Solid   808.89  360.13  686.57  449.10  670.89  468.48  832.16  351.19     e
+% Edge:    39   40
+    3.00 Blue Solid   674.74  482.98  674.49  574.05  670.56  588.53  670.89  468.48     e
+% Edge:    39   49
+    3.00 Blue Solid   684.72  453.69  742.50  345.28  747.07  325.56  670.89  468.48     e
+% Edge:    30   40
+    3.00 Blue Solid   525.19  635.29  648.95  590.40  670.56  588.53  507.40  647.71     e
+% Edge:    31   40
+    3.00 Blue Solid   780.37  659.88  688.03  594.93  670.56  588.53  792.30  674.16     e
+% Edge:    39   40
+    3.00 Blue Solid   666.97  482.96  666.72  574.03  670.56  588.53  670.89  468.48     e
+% Edge:    40   50
+    3.00 Blue Solid   682.50  576.85  734.10  489.60  738.59  473.51  670.56  588.53     e
+% Edge:    31   41
+    3.00 Blue Solid   797.53  659.43  851.31  581.28  863.21  571.14  792.30  674.16     e
+% Edge:    41   42
+    3.00 Blue Solid   886.78  568.58 1028.96  590.61 1050.66  600.19  863.21  571.14     e
+% Edge:    41   50
+    3.00 Blue Solid   845.00  563.38  750.48  489.33  738.59  473.51  863.21  571.14     e
+% Edge:    41   51
+    3.00 Blue Solid   859.32  555.08  811.34  467.04  799.94  455.07  863.21  571.14     e
+% Edge:    32   42
+    3.00 Blue Solid   986.08  690.08 1038.86  610.59 1050.66  600.19  981.07  704.98     e
+% Edge:    41   42
+    3.00 Blue Solid   884.90  580.71 1027.08  602.74 1050.66  600.19  863.21  571.14     e
+% Edge:    42   43
+    3.00 Blue Solid  1071.78  589.62 1212.19  560.86 1235.76  562.27 1050.66  600.19     e
+% Edge:    42   52
+    3.00 Blue Solid  1048.31  585.67 1011.77  504.29 1002.48  492.89 1050.66  600.19     e
+% Edge:    33   43
+    3.00 Blue Solid  1183.30  659.81 1225.41  574.12 1235.76  562.27 1180.25  675.25     e
+% Edge:    42   43
+    3.00 Blue Solid  1074.23  601.60 1214.64  572.84 1235.76  562.27 1050.66  600.19     e
+% Edge:    43   44
+    3.00 Blue Solid  1248.58  547.13 1347.49  478.52 1366.16  471.81 1235.76  562.27     e
+% Edge:    43   53
+    3.00 Blue Solid  1233.07  547.56 1194.17  465.57 1184.48  454.17 1235.76  562.27     e
+% Edge:    34   44
+    3.00 Blue Solid  1308.38  567.76 1355.12  483.27 1366.16  471.81 1304.54  583.20     e
+% Edge:    43   44
+    3.00 Blue Solid  1254.43  555.57 1353.35  486.95 1366.16  471.81 1235.76  562.27     e
+% Edge:    44   45
+    3.00 Blue Solid  1363.02  457.70 1366.76  370.01 1371.10  356.21 1366.16  471.81     e
+% Edge:    44   54
+    3.00 Blue Solid  1361.13  456.22 1307.16  372.71 1295.01  361.72 1366.16  471.81     e
+% Edge:    35   45
+    3.00 Blue Solid  1308.39  451.25 1359.40  367.39 1371.10  356.21 1303.84  466.78     e
+% Edge:    44   45
+    3.00 Blue Solid  1370.50  458.02 1374.24  370.33 1371.10  356.21 1366.16  471.81     e
+% Edge:    45   46
+    3.00 Blue Solid  1353.40  348.80 1261.31  277.56 1249.69  262.29 1371.10  356.21     e
+% Edge:    45   55
+    3.00 Blue Solid  1366.91  340.73 1318.05  256.54 1306.69  245.22 1371.10  356.21     e
+% Edge:    36   46
+    3.00 Blue Solid  1206.62  356.30 1240.74  273.94 1249.69  262.29 1204.70  370.86     e
+% Edge:    45   46
+    3.00 Blue Solid  1359.48  340.94 1267.39  269.70 1249.69  262.29 1371.10  356.21     e
+% Edge:    46   47
+    3.00 Blue Solid  1226.55  262.72 1090.24  228.92 1069.98  217.73 1249.69  262.29     e
+% Edge:    46   56
+    3.00 Blue Solid  1246.17  246.82 1201.23  161.71 1190.44  150.08 1249.69  262.29     e
+% Edge:    37   47
+    3.00 Blue Solid  1032.23  310.55 1061.81  229.39 1069.98  217.73 1030.98  324.74     e
+% Edge:    46   47
+    3.00 Blue Solid  1229.43  251.09 1093.12  217.29 1069.98  217.73 1249.69  262.29     e
+% Edge:    47   48
+    3.00 Blue Solid  1047.88  226.31  904.87  241.91  881.44  238.29 1069.98  217.73     e
+% Edge:    47   57
+    3.00 Blue Solid  1064.24  202.84 1007.21  124.63  994.79  114.61 1069.98  217.73     e
+% Edge:    38   48
+    3.00 Blue Solid   834.46  335.96  871.84  250.33  881.44  238.29  832.16  351.19     e
+% Edge:    47   48
+    3.00 Blue Solid  1046.55  214.11  903.54  229.71  881.44  238.29 1069.98  217.73     e
+% Edge:    48   49
+    3.00 Blue Solid   868.04  253.18  766.12  319.37  747.07  325.56  881.44  238.29     e
+% Edge:    48   58
+    3.00 Blue Solid   875.22  223.71  815.85  147.99  803.17  138.47  881.44  238.29     e
+% Edge:    39   49
+    3.00 Blue Solid   675.47  448.76  733.25  340.35  747.07  325.56  670.89  468.48     e
+% Edge:    48   49
+    3.00 Blue Solid   862.40  244.48  760.47  310.68  747.07  325.56  881.44  238.29     e
+% Edge:    49   50
+    3.00 Blue Solid   750.83  343.70  744.40  455.92  738.59  473.51  747.07  325.56     e
+% Edge:    49   59
+    3.00 Blue Solid   741.45  310.08  684.18  228.16  671.57  217.56  747.07  325.56     e
+% Edge:    40   50
+    3.00 Blue Solid   675.06  572.44  726.66  485.20  738.59  473.51  670.56  588.53     e
+% Edge:    41   50
+    3.00 Blue Solid   851.32  555.32  756.79  481.27  738.59  473.51  863.21  571.14     e
+% Edge:    49   50
+    3.00 Blue Solid   741.26  343.15  734.83  455.37  738.59  473.51  747.07  325.56     e
+% Edge:    50   60
+    3.00 Blue Solid   732.89  453.77  668.49  347.04  653.69  332.80  738.59  473.51     e
+% Edge:    41   51
+    3.00 Blue Solid   851.81  559.17  803.83  471.13  799.94  455.07  863.21  571.14     e
+% Edge:    51   52
+    3.00 Blue Solid   825.62  453.09  979.25  481.78 1002.48  492.89  799.94  455.07     e
+% Edge:    51   60
+    3.00 Blue Solid   778.33  445.04  667.39  352.29  653.69  332.80  799.94  455.07     e
+% Edge:    51   61
+    3.00 Blue Solid   777.04  437.88  615.82  373.09  587.39  369.66  799.94  455.07     e
+% Edge:    42   52
+    3.00 Blue Solid  1041.37  588.79 1004.83  507.41 1002.48  492.89 1050.66  600.19     e
+% Edge:    51   52
+    3.00 Blue Solid   823.18  466.19  976.80  494.88 1002.48  492.89  799.94  455.07     e
+% Edge:    52   53
+    3.00 Blue Solid  1023.20  482.33 1161.25  452.96 1184.48  454.17 1002.48  492.89     e
+% Edge:    52   62
+    3.00 Blue Solid   984.34  478.63  855.59  423.55  832.75  420.27 1002.48  492.89     e
+% Edge:    43   53
+    3.00 Blue Solid  1226.07  550.88 1187.17  468.89 1184.48  454.17 1235.76  562.27     e
+% Edge:    52   53
+    3.00 Blue Solid  1025.71  494.11 1163.76  464.74 1184.48  454.17 1002.48  492.89     e
+% Edge:    53   54
+    3.00 Blue Solid  1194.83  439.44 1278.67  369.31 1295.01  361.72 1184.48  454.17     e
+% Edge:    53   63
+    3.00 Blue Solid  1168.81  440.83 1056.01  387.19 1035.76  383.46 1184.48  454.17     e
+% Edge:    44   54
+    3.00 Blue Solid  1354.01  460.82 1300.04  377.31 1295.01  361.72 1366.16  471.81     e
+% Edge:    53   54
+    3.00 Blue Solid  1200.82  446.59 1284.66  376.46 1295.01  361.72 1184.48  454.17     e
+% Edge:    54   55
+    3.00 Blue Solid  1292.65  347.28 1301.51  258.91 1306.69  245.22 1295.01  361.72     e
+% Edge:    54   64
+    3.00 Blue Solid  1278.90  348.30 1163.36  294.95 1142.70  291.38 1295.01  361.72     e
+% Edge:    45   55
+    3.00 Blue Solid  1359.73  344.89 1310.87  260.71 1306.69  245.22 1371.10  356.21     e
+% Edge:    54   55
+    3.00 Blue Solid  1300.19  348.03 1309.04  259.67 1306.69  245.22 1295.01  361.72     e
+% Edge:    55   56
+    3.00 Blue Solid  1289.57  237.50 1201.40  165.33 1190.44  150.08 1306.69  245.22     e
+% Edge:    55   65
+    3.00 Blue Solid  1288.21  231.84 1158.86  182.39 1136.16  180.03 1306.69  245.22     e
+% Edge:    46   56
+    3.00 Blue Solid  1238.91  250.66 1193.97  165.55 1190.44  150.08 1249.69  262.29     e
+% Edge:    55   56
+    3.00 Blue Solid  1295.73  229.98 1207.56  157.81 1190.44  150.08 1306.69  245.22     e
+% Edge:    56   57
+    3.00 Blue Solid  1165.67  152.13 1017.27  125.22  994.79  114.61 1190.44  150.08     e
+% Edge:    56   66
+    3.00 Blue Solid  1172.65  136.50 1047.01   84.83 1024.81   81.96 1190.44  150.08     e
+% Edge:    47   57
+    3.00 Blue Solid  1057.57  207.71 1000.54  129.49  994.79  114.61 1069.98  217.73     e
+% Edge:    56   57
+    3.00 Blue Solid  1167.97  139.47 1019.56  112.56  994.79  114.61 1190.44  150.08     e
+% Edge:    57   58
+    3.00 Blue Solid   972.43  123.69  827.08  141.79  803.17  138.47  994.79  114.61     e
+% Edge:    57   67
+    3.00 Blue Solid   977.40  100.77  853.74   46.96  831.76   43.66  994.79  114.61     e
+% Edge:    48   58
+    3.00 Blue Solid   868.76  228.77  809.39  153.06  803.17  138.47  881.44  238.29     e
+% Edge:    57   58
+    3.00 Blue Solid   970.88  111.29  825.53  129.39  803.17  138.47  994.79  114.61     e
+% Edge:    58   59
+    3.00 Blue Solid   789.84  152.28  690.02  212.27  671.57  217.56  803.17  138.47     e
+% Edge:    58   68
+    3.00 Blue Solid   784.91  126.03  658.36   81.77  636.32   80.12  803.17  138.47     e
+% Edge:    49   59
+    3.00 Blue Solid   734.46  314.96  677.20  233.04  671.57  217.56  747.07  325.56     e
+% Edge:    58   59
+    3.00 Blue Solid   784.72  143.76  684.90  203.76  671.57  217.56  803.17  138.47     e
+% Edge:    59   60
+    3.00 Blue Solid   673.14  232.05  659.58  319.46  653.69  332.80  671.57  217.56     e
+% Edge:    59   69
+    3.00 Blue Solid   653.35  205.62  527.79  164.23  506.03  162.99  671.57  217.56     e
+% Edge:    50   60
+    3.00 Blue Solid   723.79  459.27  659.39  352.53  653.69  332.80  738.59  473.51     e
+% Edge:    51   60
+    3.00 Blue Solid   786.24  435.58  675.31  342.83  653.69  332.80  799.94  455.07     e
+% Edge:    59   60
+    3.00 Blue Solid   665.69  230.90  652.12  318.30  653.69  332.80  671.57  217.56     e
+% Edge:    60   70
+    3.00 Blue Solid   634.96  319.76  504.67  272.75  481.92  270.82  653.69  332.80     e
+% Edge:    51   61
+    3.00 Blue Solid   771.52  451.64  610.29  386.85  587.39  369.66  799.94  455.07     e
+% Edge:    61   62
+    3.00 Blue Solid   618.65  367.83  804.76  406.22  832.75  420.27  587.39  369.66     e
+% Edge:    61   70
+    3.00 Blue Solid   571.46  361.14  491.46  286.17  481.92  270.82  587.39  369.66     e
+% Edge:    61   71
+    3.00 Blue Solid   562.65  364.06  408.83  370.14  384.61  377.67  587.39  369.66     e
+% Edge:    52   62
+    3.00 Blue Solid   979.64  489.62  850.89  434.53  832.75  420.27 1002.48  492.89     e
+% Edge:    61   62
+    3.00 Blue Solid   615.38  383.71  801.49  422.10  832.75  420.27  587.39  369.66     e
+% Edge:    62   63
+    3.00 Blue Solid   856.07  409.26 1010.06  381.34 1035.76  383.46  832.75  420.27     e
+% Edge:    62   72
+    3.00 Blue Solid   801.27  412.09  603.90  413.56  572.55  422.21  832.75  420.27     e
+% Edge:    53   63
+    3.00 Blue Solid  1164.24  450.45 1051.43  396.81 1035.76  383.46 1184.48  454.17     e
+% Edge:    62   63
+    3.00 Blue Solid   858.45  422.39 1012.44  394.48 1035.76  383.46  832.75  420.27     e
+% Edge:    63   64
+    3.00 Blue Solid  1045.69  368.89 1126.80  299.04 1142.70  291.38 1035.76  383.46     e
+% Edge:    63   73
+    3.00 Blue Solid  1010.30  376.38  849.93  374.87  824.34  381.47 1035.76  383.46     e
+% Edge:    54   64
+    3.00 Blue Solid  1274.34  358.15 1158.81  304.80 1142.70  291.38 1295.01  361.72     e
+% Edge:    63   64
+    3.00 Blue Solid  1051.65  375.80 1132.76  305.96 1142.70  291.38 1035.76  383.46     e
+% Edge:    64   65
+    3.00 Blue Solid  1138.30  278.15 1133.35  193.69 1136.16  180.03 1142.70  291.38     e
+% Edge:    64   74
+    3.00 Blue Solid  1119.64  284.26  973.33  278.75  949.80  284.11 1142.70  291.38     e
+% Edge:    55   65
+    3.00 Blue Solid  1283.99  242.87 1154.64  193.42 1136.16  180.03 1306.69  245.22     e
+% Edge:    64   65
+    3.00 Blue Solid  1145.51  277.73 1140.55  193.27 1136.16  180.03 1142.70  291.38     e
+% Edge:    65   66
+    3.00 Blue Solid  1119.54  171.79 1035.08   97.41 1024.81   81.96 1136.16  180.03     e
+% Edge:    65   75
+    3.00 Blue Solid  1112.73  173.01  964.38  168.67  940.58  174.30 1136.16  180.03     e
+% Edge:    56   66
+    3.00 Blue Solid  1168.24  147.22 1042.60   95.55 1024.81   81.96 1190.44  150.08     e
+% Edge:    65   66
+    3.00 Blue Solid  1125.89  164.59 1041.43   90.20 1024.81   81.96 1136.16  180.03     e
+% Edge:    66   67
+    3.00 Blue Solid  1000.26   83.59  853.83   54.53  831.76   43.66 1024.81   81.96     e
+% Edge:    66   76
+    3.00 Blue Solid   999.92   75.88  844.46   79.33  819.87   86.50 1024.81   81.96     e
+% Edge:    57   67
+    3.00 Blue Solid   972.81  111.32  849.15   57.50  831.76   43.66  994.79  114.61     e
+% Edge:    66   67
+    3.00 Blue Solid  1002.74   71.09  856.31   42.04  831.76   43.66 1024.81   81.96     e
+% Edge:    67   68
+    3.00 Blue Solid   809.34   54.39  661.10   82.04  636.32   80.12  831.76   43.66     e
+% Edge:    67   77
+    3.00 Blue Solid   807.16   37.16  652.77   37.66  628.21   44.33  831.76   43.66     e
+% Edge:    58   68
+    3.00 Blue Solid   781.13  136.83  654.58   92.56  636.32   80.12  803.17  138.47     e
+% Edge:    67   68
+    3.00 Blue Solid   806.99   41.74  658.74   69.40  636.32   80.12  831.76   43.66     e
+% Edge:    68   69
+    3.00 Blue Solid   623.27   94.34  524.45  157.20  506.03  162.99  636.32   80.12     e
+% Edge:    68   78
+    3.00 Blue Solid   611.70   73.19  456.52   71.26  431.74   77.57  636.32   80.12     e
+% Edge:    59   69
+    3.00 Blue Solid   649.82  216.33  524.26  174.94  506.03  162.99  671.57  217.56     e
+% Edge:    68   69
+    3.00 Blue Solid   617.91   85.91  519.08  148.77  506.03  162.99  636.32   80.12     e
+% Edge:    69   70
+    3.00 Blue Solid   506.61  176.79  488.32  258.58  481.92  270.82  506.03  162.99     e
+% Edge:    69   79
+    3.00 Blue Solid   482.26  157.79  334.74  164.65  311.55  172.04  506.03  162.99     e
+% Edge:    60   70
+    3.00 Blue Solid   630.95  330.87  500.65  283.86  481.92  270.82  653.69  332.80     e
+% Edge:    61   70
+    3.00 Blue Solid   577.85  354.31  497.85  279.34  481.92  270.82  587.39  369.66     e
+% Edge:    69   70
+    3.00 Blue Solid   499.63  175.23  481.34  257.02  481.92  270.82  506.03  162.99     e
+% Edge:    70   80
+    3.00 Blue Solid   458.62  266.09  314.64  274.98  292.10  282.53  481.92  270.82     e
+% Edge:    61   71
+    3.00 Blue Solid   563.16  377.19  409.35  383.26  384.61  377.67  587.39  369.66     e
+% Edge:    71   72
+    3.00 Blue Solid   408.74  376.97  551.30  410.76  572.55  422.21  384.61  377.67     e
+% Edge:    71   80
+    3.00 Blue Solid   370.36  369.17  300.19  297.01  292.10  282.53  384.61  377.67     e
+% Edge:    71   81
+    3.00 Blue Solid   365.16  381.96  257.94  437.68  243.25  451.12  384.61  377.67     e
+% Edge:    62   72
+    3.00 Blue Solid   801.39  428.92  604.03  430.40  572.55  422.21  832.75  420.27     e
+% Edge:    71   72
+    3.00 Blue Solid   405.86  389.13  548.42  422.92  572.55  422.21  384.61  377.67     e
+% Edge:    72   73
+    3.00 Blue Solid   601.63  409.15  792.62  378.25  824.34  381.47  572.55  422.21     e
+% Edge:    72   82
+    3.00 Blue Solid   551.34  426.23  433.34  483.07  416.98  497.15  572.55  422.21     e
+% Edge:    63   73
+    3.00 Blue Solid  1010.17  390.06  849.80  388.55  824.34  381.47 1035.76  383.46     e
+% Edge:    72   73
+    3.00 Blue Solid   604.27  425.44  795.25  394.54  824.34  381.47  572.55  422.21     e
+% Edge:    73   74
+    3.00 Blue Solid   836.34  365.66  931.50  291.81  949.80  284.11  824.34  381.47     e
+% Edge:    73   83
+    3.00 Blue Solid   796.27  385.51  638.08  453.25  615.79  470.78  824.34  381.47     e
+% Edge:    64   74
+    3.00 Blue Solid  1119.17  296.74  972.86  291.23  949.80  284.11 1142.70  291.38     e
+% Edge:    73   74
+    3.00 Blue Solid   842.64  373.78  937.80  299.93  949.80  284.11  824.34  381.47     e
+% Edge:    74   75
+    3.00 Blue Solid   945.14  271.15  938.15  187.86  940.58  174.30  949.80  284.11     e
+% Edge:    74   84
+    3.00 Blue Solid   926.70  286.90  795.66  339.54  777.04  353.51  949.80  284.11     e
+% Edge:    65   75
+    3.00 Blue Solid  1112.36  185.67  964.01  181.32  940.58  174.30 1136.16  180.03     e
+% Edge:    74   75
+    3.00 Blue Solid   952.24  270.55  945.25  187.26  940.58  174.30  949.80  284.11     e
+% Edge:    75   76
+    3.00 Blue Solid   923.17  167.61  831.60  101.01  819.87   86.50  940.58  174.30     e
+% Edge:    75   85
+    3.00 Blue Solid   918.96  176.16  795.11  221.00  777.31  233.42  940.58  174.30     e
+% Edge:    66   76
+    3.00 Blue Solid  1000.21   89.14  844.76   92.59  819.87   86.50 1024.81   81.96     e
+% Edge:    75   76
+    3.00 Blue Solid   928.85  159.79  837.28   93.20  819.87   86.50  940.58  174.30     e
+% Edge:    76   77
+    3.00 Blue Solid   795.36   87.61  649.99   55.62  628.21   44.33  819.87   86.50     e
+% Edge:    76   86
+    3.00 Blue Solid   798.08   88.60  673.65  135.09  655.83  147.80  819.87   86.50     e
+% Edge:    67   77
+    3.00 Blue Solid   807.21   50.33  652.81   50.83  628.21   44.33  831.76   43.66     e
+% Edge:    76   77
+    3.00 Blue Solid   798.09   75.21  652.72   43.22  628.21   44.33  819.87   86.50     e
+% Edge:    77   78
+    3.00 Blue Solid   605.56   54.70  456.54   79.92  431.74   77.57  628.21   44.33     e
+% Edge:    77   87
+    3.00 Blue Solid   606.39   47.88  484.05  102.99  466.93  116.98  628.21   44.33     e
+% Edge:    68   78
+    3.00 Blue Solid   611.54   86.43  456.36   84.50  431.74   77.57  636.32   80.12     e
+% Edge:    77   78
+    3.00 Blue Solid   603.41   41.99  454.38   67.20  431.74   77.57  628.21   44.33     e
+% Edge:    78   79
+    3.00 Blue Solid   420.28   92.87  329.12  164.52  311.55  172.04  431.74   77.57     e
+% Edge:    78   88
+    3.00 Blue Solid   409.70   80.62  285.33  133.12  267.77  146.78  431.74   77.57     e
+% Edge:    69   79
+    3.00 Blue Solid   482.84  170.38  335.33  177.24  311.55  172.04  506.03  162.99     e
+% Edge:    78   79
+    3.00 Blue Solid   414.17   85.09  323.01  156.74  311.55  172.04  431.74   77.57     e
+% Edge:    79   80
+    3.00 Blue Solid   312.78  186.01  298.02  269.82  292.10  282.53  311.55  172.04     e
+% Edge:    79   89
+    3.00 Blue Solid   289.10  174.66  161.61  225.28  143.48  238.77  311.55  172.04     e
+% Edge:    70   80
+    3.00 Blue Solid   459.38  278.38  315.40  287.26  292.10  282.53  481.92  270.82     e
+% Edge:    71   80
+    3.00 Blue Solid   376.51  363.19  306.35  291.03  292.10  282.53  384.61  377.67     e
+% Edge:    79   80
+    3.00 Blue Solid   305.63  184.75  290.87  268.56  292.10  282.53  311.55  172.04     e
+% Edge:    80   90
+    3.00 Blue Solid   271.88  286.53  159.68  341.70  144.17  355.27  292.10  282.53     e
+% Edge:    71   81
+    3.00 Blue Solid   369.91  391.11  262.69  446.83  243.25  451.12  384.61  377.67     e
+% Edge:    81   82
+    3.00 Blue Solid   265.71  451.06  397.50  485.98  416.98  497.15  243.25  451.12     e
+% Edge:    81   90
+    3.00 Blue Solid   228.18  442.76  153.03  370.05  144.17  355.27  243.25  451.12     e
+% Edge:    81   91
+    3.00 Blue Solid   234.31  462.77  200.21  545.09  198.29  559.65  243.25  451.12     e
+% Edge:    72   82
+    3.00 Blue Solid   556.19  436.30  438.19  493.14  416.98  497.15  572.55  422.21     e
+% Edge:    81   82
+    3.00 Blue Solid   262.74  462.30  394.52  497.22  416.98  497.15  243.25  451.12     e
+% Edge:    82   83
+    3.00 Blue Solid   440.13  487.54  590.93  467.53  615.79  470.78  416.98  497.15     e
+% Edge:    82   92
+    3.00 Blue Solid   408.82  508.81  379.29  589.97  378.05  604.15  416.98  497.15     e
+% Edge:    73   83
+    3.00 Blue Solid   802.05  399.00  643.86  466.75  615.79  470.78  824.34  381.47     e
+% Edge:    82   83
+    3.00 Blue Solid   441.84  500.40  592.64  480.40  615.79  470.78  416.98  497.15     e
+% Edge:    83   84
+    3.00 Blue Solid   631.46  451.41  753.78  362.45  777.04  353.51  615.79  470.78     e
+% Edge:    83   93
+    3.00 Blue Solid   606.18  482.82  568.81  568.49  566.52  583.72  615.79  470.78     e
+% Edge:    74   84
+    3.00 Blue Solid   931.19  298.08  800.15  350.72  777.04  353.51  949.80  284.11     e
+% Edge:    83   84
+    3.00 Blue Solid   639.05  461.84  761.37  372.88  777.04  353.51  615.79  470.78     e
+% Edge:    84   85
+    3.00 Blue Solid   773.19  339.00  773.40  247.91  777.31  233.42  777.04  353.51     e
+% Edge:    84   94
+    3.00 Blue Solid   763.24  368.29  705.58  476.65  701.02  496.36  777.04  353.51     e
+% Edge:    75   85
+    3.00 Blue Solid   922.78  186.72  798.94  231.57  777.31  233.42  940.58  174.30     e
+% Edge:    84   85
+    3.00 Blue Solid   780.96  339.02  781.17  247.93  777.31  233.42  777.04  353.51     e
+% Edge:    85   86
+    3.00 Blue Solid   759.88  227.01  667.73  162.07  655.83  147.80  777.31  233.42     e
+% Edge:    85   95
+    3.00 Blue Solid   765.40  245.11  713.91  332.34  709.44  348.42  777.31  233.42     e
+% Edge:    76   86
+    3.00 Blue Solid   802.04   99.21  677.62  145.71  655.83  147.80  819.87   86.50     e
+% Edge:    85   86
+    3.00 Blue Solid   765.42  219.15  673.27  154.21  655.83  147.80  777.31  233.42     e
+% Edge:    86   87
+    3.00 Blue Solid   632.02  150.19  488.74  126.82  466.93  116.98  655.83  147.80     e
+% Edge:    86   96
+    3.00 Blue Solid   643.90  157.93  589.91  236.04  584.65  250.78  655.83  147.80     e
+% Edge:    77   87
+    3.00 Blue Solid   611.09   58.32  488.75  113.43  466.93  116.98  628.21   44.33     e
+% Edge:    86   87
+    3.00 Blue Solid   634.02  137.97  490.74  114.59  466.93  116.98  655.83  147.80     e
+% Edge:    87   88
+    3.00 Blue Solid   443.85  127.02  292.78  149.62  267.77  146.78  466.93  116.98     e
+% Edge:    87   97
+    3.00 Blue Solid   455.13  127.38  402.30  206.84  397.28  221.74  466.93  116.98     e
+% Edge:    78   88
+    3.00 Blue Solid   414.18   91.23  289.80  143.73  267.77  146.78  431.74   77.57     e
+% Edge:    87   88
+    3.00 Blue Solid   441.92  114.14  290.85  136.74  267.77  146.78  466.93  116.98     e
+% Edge:    88   89
+    3.00 Blue Solid   255.74  161.91  161.46  231.69  143.48  238.77  267.77  146.78     e
+% Edge:    88   98
+    3.00 Blue Solid   257.40  158.61  215.24  244.26  212.18  259.69  267.77  146.78     e
+% Edge:    79   89
+    3.00 Blue Solid   293.42  185.53  165.93  236.15  143.48  238.77  311.55  172.04     e
+% Edge:    88   89
+    3.00 Blue Solid   249.78  153.86  155.51  223.64  143.48  238.77  267.77  146.78     e
+% Edge:    89   90
+    3.00 Blue Solid   147.33  252.82  147.85  341.18  144.17  355.27  143.48  238.77     e
+% Edge:    89   99
+    3.00 Blue Solid   132.43  250.22   85.67  334.68   81.83  350.12  143.48  238.77     e
+% Edge:    80   90
+    3.00 Blue Solid   276.59  296.10  164.38  351.27  144.17  355.27  292.10  282.53     e
+% Edge:    81   90
+    3.00 Blue Solid   234.39  436.35  159.23  363.64  144.17  355.27  243.25  451.12     e
+% Edge:    89   90
+    3.00 Blue Solid   139.79  252.86  140.32  341.23  144.17  355.27  143.48  238.77     e
+% Edge:    90  100
+    3.00 Blue Solid   132.47  366.44   81.45  450.27   76.90  465.79  144.17  355.27     e
+% Edge:     1   91
+    3.00 Blue Solid   246.75  660.29  201.81  575.13  198.29  559.65  257.53  671.93     e
+% Edge:    81   91
+    3.00 Blue Solid   241.33  465.68  207.23  548.00  198.29  559.65  243.25  451.12     e
+% Edge:    91   92
+    3.00 Blue Solid   221.44  559.21  357.78  592.96  378.05  604.15  198.29  559.65     e
+% Edge:    91  100
+    3.00 Blue Solid   186.67  544.39   94.60  473.19   76.90  465.79  198.29  559.65     e
+% Edge:     2   92
+    3.00 Blue Solid   440.74  697.37  383.78  619.04  378.05  604.15  453.15  707.41     e
+% Edge:    82   92
+    3.00 Blue Solid   415.74  511.33  386.21  592.49  378.05  604.15  416.98  497.15     e
+% Edge:    91   92
+    3.00 Blue Solid   218.56  570.84  354.91  604.59  378.05  604.15  198.29  559.65     e
+% Edge:    92   93
+    3.00 Blue Solid   401.47  607.78  544.42  592.28  566.52  583.72  378.05  604.15     e
+% Edge:     3   93
+    3.00 Blue Solid   632.02  674.05  572.72  598.30  566.52  583.72  644.69  683.57     e
+% Edge:    83   93
+    3.00 Blue Solid   613.49  486.01  576.12  571.67  566.52  583.72  615.79  470.78     e
+% Edge:    92   93
+    3.00 Blue Solid   400.14  595.58  543.10  580.08  566.52  583.72  378.05  604.15     e
+% Edge:    93   94
+    3.00 Blue Solid   585.58  577.52  687.61  511.26  701.02  496.36  566.52  583.72     e
+% Edge:     4   94
+    3.00 Blue Solid   763.70  593.75  706.62  511.83  701.02  496.36  776.28  604.36     e
+% Edge:    84   94
+    3.00 Blue Solid   772.49  373.21  714.82  481.57  701.02  496.36  777.04  353.51     e
+% Edge:    93   94
+    3.00 Blue Solid   579.93  568.82  681.96  502.56  701.02  496.36  566.52  583.72     e
+% Edge:    94   95
+    3.00 Blue Solid   706.83  478.77  713.21  366.56  709.44  348.42  701.02  496.36     e
+% Edge:     5   95
+    3.00 Blue Solid   779.54  474.93  715.14  368.17  709.44  348.42  794.35  489.18     e
+% Edge:    85   95
+    3.00 Blue Solid   772.84  249.50  721.36  336.73  709.44  348.42  777.31  233.42     e
+% Edge:    94   95
+    3.00 Blue Solid   697.25  478.23  703.64  366.01  709.44  348.42  701.02  496.36     e
+% Edge:    95   96
+    3.00 Blue Solid   697.53  332.60  602.88  258.53  584.65  250.78  709.44  348.42     e
+% Edge:     6   96
+    3.00 Blue Solid   636.49  354.87  588.53  266.84  584.65  250.78  647.88  366.84     e
+% Edge:    86   96
+    3.00 Blue Solid   650.57  162.54  596.58  240.65  584.65  250.78  655.83  147.80     e
+% Edge:    95   96
+    3.00 Blue Solid   691.21  340.67  596.56  266.61  584.65  250.78  709.44  348.42     e
+% Edge:    96   97
+    3.00 Blue Solid   562.97  241.21  420.85  219.19  397.28  221.74  584.65  250.78     e
+% Edge:     7   97
+    3.00 Blue Solid   436.11  317.60  399.62  236.25  397.28  221.74  445.39  329.00     e
+% Edge:    87   97
+    3.00 Blue Solid   461.91  131.89  409.08  211.35  397.28  221.74  466.93  116.98     e
+% Edge:    96   97
+    3.00 Blue Solid   561.09  253.34  418.97  231.31  397.28  221.74  584.65  250.78     e
+% Edge:    97   98
+    3.00 Blue Solid   373.71  220.34  233.30  249.12  212.18  259.69  397.28  221.74     e
+% Edge:     8   98
+    3.00 Blue Solid   253.83  356.50  214.88  274.42  212.18  259.69  263.53  367.90     e
+% Edge:    88   98
+    3.00 Blue Solid   264.71  162.21  222.54  247.86  212.18  259.69  267.77  146.78     e
+% Edge:    97   98
+    3.00 Blue Solid   376.16  232.31  235.75  261.10  212.18  259.69  397.28  221.74     e
+% Edge:    98   99
+    3.00 Blue Solid   193.51  266.40   94.64  334.99   81.83  350.12  212.18  259.69     e
+% Edge:     9   99
+    3.00 Blue Solid   140.81  449.30   86.86  365.73   81.83  350.12  152.96  460.31     e
+% Edge:    89   99
+    3.00 Blue Solid   139.63  254.21   92.88  338.67   81.83  350.12  143.48  238.77     e
+% Edge:    98   99
+    3.00 Blue Solid   199.36  274.83  100.50  343.42   81.83  350.12  212.18  259.69     e
+% Edge:    99  100
+    3.00 Blue Solid    77.49  363.93   73.76  451.66   76.90  465.79   81.83  350.12     e
+% Edge:    10  100
+    3.00 Blue Solid   129.93  565.47   81.09  481.27   76.90  465.79  141.29  576.79     e
+% Edge:    90  100
+    3.00 Blue Solid   139.62  370.79   88.60  454.62   76.90  465.79  144.17  355.27     e
+% Edge:    91  100
+    3.00 Blue Solid   180.60  552.25   88.52  481.05   76.90  465.79  198.29  559.65     e
+% Edge:    99  100
+    3.00 Blue Solid    84.98  364.25   81.24  451.98   76.90  465.79   81.83  350.12     e
+% Change to Solid line
+Solid setdash
+/ic { Red } def 
+/bc { Black } def 
+/bw {     0.50 } def 
+/r {     0.00 } def 
+/q {    0.001 } def 
+% Vertex:     1
+/ellipse    6.40    6.40    0.00  257.53  671.93 fa
+% Label:     1
+(1) Black     0.00  260.38  661.31     l
+% Vertex:     2
+/ellipse    6.40    6.40    0.00  453.15  707.41 fa
+% Label:     2
+(2) Black     0.00  456.00  696.78     l
+% Vertex:     3
+/ellipse    6.40    6.40    0.00  644.69  683.57 fa
+% Label:     3
+(3) Black     0.00  647.53  672.95     l
+% Vertex:     4
+/ellipse    6.40    6.40    0.00  776.28  604.36 fa
+% Label:     4
+(4) Black     0.00  779.12  593.73     l
+% Vertex:     5
+/ellipse    6.40    6.40    0.00  794.35  489.18 fa
+% Label:     5
+(5) Black     0.00  797.19  478.55     l
+% Vertex:     6
+/ellipse    6.40    6.40    0.00  647.88  366.84 fa
+% Label:     6
+(6) Black     0.00  650.72  356.21     l
+% Vertex:     7
+/ellipse    6.40    6.40    0.00  445.39  329.00 fa
+% Label:     7
+(7) Black     0.00  448.24  318.37     l
+% Vertex:     8
+/ellipse    6.40    6.40    0.00  263.53  367.90 fa
+% Label:     8
+(8) Black     0.00  266.38  357.28     l
+% Vertex:     9
+/ellipse    6.40    6.40    0.00  152.96  460.31 fa
+% Label:     9
+(9) Black     0.00  155.81  449.68     l
+% Vertex:    10
+/ellipse    6.40    6.40    0.00  141.29  576.79 fa
+% Label:    10
+(10) Black     0.00  144.14  566.16     l
+% Vertex:    11
+/ellipse    6.40    6.40    0.00  423.25  740.00 fa
+% Label:    11
+(11) Black     0.00  426.09  729.37     l
+% Vertex:    12
+/ellipse    6.40    6.40    0.00  616.29  778.34 fa
+% Label:    12
+(12) Black     0.00  619.13  767.71     l
+% Vertex:    13
+/ellipse    6.40    6.40    0.00  811.62  741.87 fa
+% Label:    13
+(13) Black     0.00  814.46  731.24     l
+% Vertex:    14
+/ellipse    6.40    6.40    0.00  941.80  658.92 fa
+% Label:    14
+(14) Black     0.00  944.65  648.29     l
+% Vertex:    15
+/ellipse    6.40    6.40    0.00  965.99  551.13 fa
+% Label:    15
+(15) Black     0.00  968.83  540.50     l
+% Vertex:    16
+/ellipse    6.40    6.40    0.00  860.57  452.33 fa
+% Label:    16
+(16) Black     0.00  863.41  441.70     l
+% Vertex:    17
+/ellipse    6.40    6.40    0.00  615.24  401.76 fa
+% Label:    17
+(17) Black     0.00  618.09  391.13     l
+% Vertex:    18
+/ellipse    6.40    6.40    0.00  412.23  438.60 fa
+% Label:    18
+(18) Black     0.00  415.08  427.97     l
+% Vertex:    19
+/ellipse    6.40    6.40    0.00  305.34  530.51 fa
+% Label:    19
+(19) Black     0.00  308.19  519.88     l
+% Vertex:    20
+/ellipse    6.40    6.40    0.00  311.84  641.96 fa
+% Label:    20
+(20) Black     0.00  314.69  631.33     l
+% Vertex:    21
+/ellipse    6.40    6.40    0.00  628.18  735.50 fa
+% Label:    21
+(21) Black     0.00  631.03  724.87     l
+% Vertex:    22
+/ellipse    6.40    6.40    0.00  819.94  777.66 fa
+% Label:    22
+(22) Black     0.00  822.79  767.03     l
+% Vertex:    23
+/ellipse    6.40    6.40    0.00 1016.23  744.45 fa
+% Label:    23
+(23) Black     0.00 1019.07  733.82     l
+% Vertex:    24
+/ellipse    6.40    6.40    0.00 1136.49  650.01 fa
+% Label:    24
+(24) Black     0.00 1139.34  639.38     l
+% Vertex:    25
+/ellipse    6.40    6.40    0.00 1155.93  539.46 fa
+% Label:    25
+(25) Black     0.00 1158.78  528.84     l
+% Vertex:    26
+/ellipse    6.40    6.40    0.00 1063.35  444.29 fa
+% Label:    26
+(26) Black     0.00 1066.20  433.67     l
+% Vertex:    27
+/ellipse    6.40    6.40    0.00  875.34  399.65 fa
+% Label:    27
+(27) Black     0.00  878.19  389.02     l
+% Vertex:    28
+/ellipse    6.40    6.40    0.00  623.57  440.59 fa
+% Label:    28
+(28) Black     0.00  626.41  429.97     l
+% Vertex:    29
+/ellipse    6.40    6.40    0.00  498.19  537.80 fa
+% Label:    29
+(29) Black     0.00  501.04  527.18     l
+% Vertex:    30
+/ellipse    6.40    6.40    0.00  507.40  647.71 fa
+% Label:    30
+(30) Black     0.00  510.25  637.08     l
+% Vertex:    31
+/ellipse    6.40    6.40    0.00  792.30  674.16 fa
+% Label:    31
+(31) Black     0.00  795.14  663.53     l
+% Vertex:    32
+/ellipse    6.40    6.40    0.00  981.07  704.98 fa
+% Label:    32
+(32) Black     0.00  983.92  694.36     l
+% Vertex:    33
+/ellipse    6.40    6.40    0.00 1180.25  675.25 fa
+% Label:    33
+(33) Black     0.00 1183.10  664.62     l
+% Vertex:    34
+/ellipse    6.40    6.40    0.00 1304.54  583.20 fa
+% Label:    34
+(34) Black     0.00 1307.39  572.58     l
+% Vertex:    35
+/ellipse    6.40    6.40    0.00 1303.84  466.78 fa
+% Label:    35
+(35) Black     0.00 1306.69  456.15     l
+% Vertex:    36
+/ellipse    6.40    6.40    0.00 1204.70  370.86 fa
+% Label:    36
+(36) Black     0.00 1207.55  360.24     l
+% Vertex:    37
+/ellipse    6.40    6.40    0.00 1030.98  324.74 fa
+% Label:    37
+(37) Black     0.00 1033.83  314.11     l
+% Vertex:    38
+/ellipse    6.40    6.40    0.00  832.16  351.19 fa
+% Label:    38
+(38) Black     0.00  835.01  340.57     l
+% Vertex:    39
+/ellipse    6.40    6.40    0.00  670.89  468.48 fa
+% Label:    39
+(39) Black     0.00  673.74  457.85     l
+% Vertex:    40
+/ellipse    6.40    6.40    0.00  670.56  588.53 fa
+% Label:    40
+(40) Black     0.00  673.41  577.91     l
+% Vertex:    41
+/ellipse    6.40    6.40    0.00  863.21  571.14 fa
+% Label:    41
+(41) Black     0.00  866.05  560.51     l
+% Vertex:    42
+/ellipse    6.40    6.40    0.00 1050.66  600.19 fa
+% Label:    42
+(42) Black     0.00 1053.50  589.56     l
+% Vertex:    43
+/ellipse    6.40    6.40    0.00 1235.76  562.27 fa
+% Label:    43
+(43) Black     0.00 1238.61  551.65     l
+% Vertex:    44
+/ellipse    6.40    6.40    0.00 1366.16  471.81 fa
+% Label:    44
+(44) Black     0.00 1369.01  461.19     l
+% Vertex:    45
+/ellipse    6.40    6.40    0.00 1371.10  356.21 fa
+% Label:    45
+(45) Black     0.00 1373.94  345.59     l
+% Vertex:    46
+/ellipse    6.40    6.40    0.00 1249.69  262.29 fa
+% Label:    46
+(46) Black     0.00 1252.54  251.66     l
+% Vertex:    47
+/ellipse    6.40    6.40    0.00 1069.98  217.73 fa
+% Label:    47
+(47) Black     0.00 1072.83  207.10     l
+% Vertex:    48
+/ellipse    6.40    6.40    0.00  881.44  238.29 fa
+% Label:    48
+(48) Black     0.00  884.29  227.67     l
+% Vertex:    49
+/ellipse    6.40    6.40    0.00  747.07  325.56 fa
+% Label:    49
+(49) Black     0.00  749.92  314.94     l
+% Vertex:    50
+/ellipse    6.40    6.40    0.00  738.59  473.51 fa
+% Label:    50
+(50) Black     0.00  741.44  462.88     l
+% Vertex:    51
+/ellipse    6.40    6.40    0.00  799.94  455.07 fa
+% Label:    51
+(51) Black     0.00  802.79  444.45     l
+% Vertex:    52
+/ellipse    6.40    6.40    0.00 1002.48  492.89 fa
+% Label:    52
+(52) Black     0.00 1005.33  482.27     l
+% Vertex:    53
+/ellipse    6.40    6.40    0.00 1184.48  454.17 fa
+% Label:    53
+(53) Black     0.00 1187.33  443.55     l
+% Vertex:    54
+/ellipse    6.40    6.40    0.00 1295.01  361.72 fa
+% Label:    54
+(54) Black     0.00 1297.86  351.09     l
+% Vertex:    55
+/ellipse    6.40    6.40    0.00 1306.69  245.22 fa
+% Label:    55
+(55) Black     0.00 1309.53  234.60     l
+% Vertex:    56
+/ellipse    6.40    6.40    0.00 1190.44  150.08 fa
+% Label:    56
+(56) Black     0.00 1193.29  139.46     l
+% Vertex:    57
+/ellipse    6.40    6.40    0.00  994.79  114.61 fa
+% Label:    57
+(57) Black     0.00  997.64  103.99     l
+% Vertex:    58
+/ellipse    6.40    6.40    0.00  803.17  138.47 fa
+% Label:    58
+(58) Black     0.00  806.01  127.85     l
+% Vertex:    59
+/ellipse    6.40    6.40    0.00  671.57  217.56 fa
+% Label:    59
+(59) Black     0.00  674.42  206.94     l
+% Vertex:    60
+/ellipse    6.40    6.40    0.00  653.69  332.80 fa
+% Label:    60
+(60) Black     0.00  656.54  322.17     l
+% Vertex:    61
+/ellipse    6.40    6.40    0.00  587.39  369.66 fa
+% Label:    61
+(61) Black     0.00  590.24  359.03     l
+% Vertex:    62
+/ellipse    6.40    6.40    0.00  832.75  420.27 fa
+% Label:    62
+(62) Black     0.00  835.60  409.64     l
+% Vertex:    63
+/ellipse    6.40    6.40    0.00 1035.76  383.46 fa
+% Label:    63
+(63) Black     0.00 1038.61  372.84     l
+% Vertex:    64
+/ellipse    6.40    6.40    0.00 1142.70  291.38 fa
+% Label:    64
+(64) Black     0.00 1145.54  280.76     l
+% Vertex:    65
+/ellipse    6.40    6.40    0.00 1136.16  180.03 fa
+% Label:    65
+(65) Black     0.00 1139.01  169.41     l
+% Vertex:    66
+/ellipse    6.40    6.40    0.00 1024.81   81.96 fa
+% Label:    66
+(66) Black     0.00 1027.65   71.34     l
+% Vertex:    67
+/ellipse    6.40    6.40    0.00  831.76   43.66 fa
+% Label:    67
+(67) Black     0.00  834.61   33.04     l
+% Vertex:    68
+/ellipse    6.40    6.40    0.00  636.32   80.12 fa
+% Label:    68
+(68) Black     0.00  639.17   69.50     l
+% Vertex:    69
+/ellipse    6.40    6.40    0.00  506.03  162.99 fa
+% Label:    69
+(69) Black     0.00  508.88  152.37     l
+% Vertex:    70
+/ellipse    6.40    6.40    0.00  481.92  270.82 fa
+% Label:    70
+(70) Black     0.00  484.77  260.20     l
+% Vertex:    71
+/ellipse    6.40    6.40    0.00  384.61  377.67 fa
+% Label:    71
+(71) Black     0.00  387.45  367.04     l
+% Vertex:    72
+/ellipse    6.40    6.40    0.00  572.55  422.21 fa
+% Label:    72
+(72) Black     0.00  575.40  411.59     l
+% Vertex:    73
+/ellipse    6.40    6.40    0.00  824.34  381.47 fa
+% Label:    73
+(73) Black     0.00  827.19  370.85     l
+% Vertex:    74
+/ellipse    6.40    6.40    0.00  949.80  284.11 fa
+% Label:    74
+(74) Black     0.00  952.65  273.49     l
+% Vertex:    75
+/ellipse    6.40    6.40    0.00  940.58  174.30 fa
+% Label:    75
+(75) Black     0.00  943.43  163.68     l
+% Vertex:    76
+/ellipse    6.40    6.40    0.00  819.87   86.50 fa
+% Label:    76
+(76) Black     0.00  822.71   75.88     l
+% Vertex:    77
+/ellipse    6.40    6.40    0.00  628.21   44.33 fa
+% Label:    77
+(77) Black     0.00  631.06   33.70     l
+% Vertex:    78
+/ellipse    6.40    6.40    0.00  431.74   77.57 fa
+% Label:    78
+(78) Black     0.00  434.58   66.95     l
+% Vertex:    79
+/ellipse    6.40    6.40    0.00  311.55  172.04 fa
+% Label:    79
+(79) Black     0.00  314.40  161.41     l
+% Vertex:    80
+/ellipse    6.40    6.40    0.00  292.10  282.53 fa
+% Label:    80
+(80) Black     0.00  294.95  271.91     l
+% Vertex:    81
+/ellipse    6.40    6.40    0.00  243.25  451.12 fa
+% Label:    81
+(81) Black     0.00  246.09  440.50     l
+% Vertex:    82
+/ellipse    6.40    6.40    0.00  416.98  497.15 fa
+% Label:    82
+(82) Black     0.00  419.83  486.53     l
+% Vertex:    83
+/ellipse    6.40    6.40    0.00  615.79  470.78 fa
+% Label:    83
+(83) Black     0.00  618.63  460.16     l
+% Vertex:    84
+/ellipse    6.40    6.40    0.00  777.04  353.51 fa
+% Label:    84
+(84) Black     0.00  779.89  342.88     l
+% Vertex:    85
+/ellipse    6.40    6.40    0.00  777.31  233.42 fa
+% Label:    85
+(85) Black     0.00  780.16  222.80     l
+% Vertex:    86
+/ellipse    6.40    6.40    0.00  655.83  147.80 fa
+% Label:    86
+(86) Black     0.00  658.68  137.18     l
+% Vertex:    87
+/ellipse    6.40    6.40    0.00  466.93  116.98 fa
+% Label:    87
+(87) Black     0.00  469.78  106.36     l
+% Vertex:    88
+/ellipse    6.40    6.40    0.00  267.77  146.78 fa
+% Label:    88
+(88) Black     0.00  270.61  136.15     l
+% Vertex:    89
+/ellipse    6.40    6.40    0.00  143.48  238.77 fa
+% Label:    89
+(89) Black     0.00  146.32  228.15     l
+% Vertex:    90
+/ellipse    6.40    6.40    0.00  144.17  355.27 fa
+% Label:    90
+(90) Black     0.00  147.02  344.65     l
+% Vertex:    91
+/ellipse    6.40    6.40    0.00  198.29  559.65 fa
+% Label:    91
+(91) Black     0.00  201.14  549.03     l
+% Vertex:    92
+/ellipse    6.40    6.40    0.00  378.05  604.15 fa
+% Label:    92
+(92) Black     0.00  380.90  593.52     l
+% Vertex:    93
+/ellipse    6.40    6.40    0.00  566.52  583.72 fa
+% Label:    93
+(93) Black     0.00  569.36  573.09     l
+% Vertex:    94
+/ellipse    6.40    6.40    0.00  701.02  496.36 fa
+% Label:    94
+(94) Black     0.00  703.87  485.74     l
+% Vertex:    95
+/ellipse    6.40    6.40    0.00  709.44  348.42 fa
+% Label:    95
+(95) Black     0.00  712.29  337.80     l
+% Vertex:    96
+/ellipse    6.40    6.40    0.00  584.65  250.78 fa
+% Label:    96
+(96) Black     0.00  587.50  240.15     l
+% Vertex:    97
+/ellipse    6.40    6.40    0.00  397.28  221.74 fa
+% Label:    97
+(97) Black     0.00  400.13  211.12     l
+% Vertex:    98
+/ellipse    6.40    6.40    0.00  212.18  259.69 fa
+% Label:    98
+(98) Black     0.00  215.02  249.07     l
+% Vertex:    99
+/ellipse    6.40    6.40    0.00   81.83  350.12 fa
+% Label:    99
+(99) Black     0.00   84.68  339.50     l
+% Vertex:   100
+/ellipse    6.40    6.40    0.00   76.90  465.79 fa
+% Label:   100
+(100) Black     0.00   79.75  455.16     l
+/pajkec 0.18 0.18 0 1418 12 fa
+showpage end end
