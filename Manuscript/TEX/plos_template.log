@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2013.9.16)  16 OCT 2013 12:50
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2013.10.16)  17 OCT 2013 14:57
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -395,7 +395,7 @@ Package: verbatim 2003/08/22 v1.5q LaTeX2e package for verbatim enhancements
 \verbatim@in@stream=\read2
 )
 (/usr/share/texlive/texmf-dist/tex/latex/animate/animate.sty
-Package: animate 2013/07/19 PDF animations from files and inline graphics
+Package: animate 2013/09/24 PDF animations from files and inline graphics
 
 (/usr/share/texlive/texmf-dist/tex/latex/base/ifthen.sty
 Package: ifthen 2001/05/26 v1.1c Standard LaTeX ifthen package (DPC)
@@ -575,79 +575,31 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
 (Font)              Font shape `OT1/ptm/b/n' tried instead on input line 30.
  [1
 
-]
-
-LaTeX Font Warning: Command \small invalid in math mode on input line 46.
-
-LaTeX Font Info:    Calculating math sizes for size <> on input line 49.
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <> not available
-(Font)              size <5> substituted on input line 49.
+] [2]
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 167.
 
 
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.7> not available
-(Font)              size <5> substituted on input line 49.
-
-
-LaTeX Font Warning: Font shape `OT1/cmr/m/n' in size <0.5> not available
-(Font)              size <5> substituted on input line 49.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <> not available
-(Font)              size <5> substituted on input line 49.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.7> not available
-(Font)              size <5> substituted on input line 49.
-
-
-LaTeX Font Warning: Font shape `OML/cmm/m/it' in size <0.5> not available
-(Font)              size <5> substituted on input line 49.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <> not available
-(Font)              size <5> substituted on input line 49.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.7> not available
-(Font)              size <5> substituted on input line 49.
-
-
-LaTeX Font Warning: Font shape `OMS/cmsy/m/n' in size <0.5> not available
-(Font)              size <5> substituted on input line 49.
-
-
-LaTeX Font Warning: Command \small invalid in math mode on input line 72.
-
-[2]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 147.
-
- (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
+(/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 147.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 167.
  [3] [4]
-Overfull \hbox (31.7144pt too wide) detected at line 312
+Overfull \hbox (31.7144pt too wide) detected at line 338
 []
  []
 
 [5]) (./plos_template.bbl)
 File: ./figures/Fluxogram.eps Graphic file (type eps)
  <./figures/Fluxogram.eps> [6] [7]
-(./plos_template.aux)
-
-LaTeX Font Warning: Size substitutions with differences
-(Font)              up to 4.5pt have occurred.
-
- ) 
+(./plos_template.aux) ) 
 Here is how much of TeX's memory you used:
- 14002 strings out of 495032
- 277402 string characters out of 6181557
- 384873 words of memory out of 5000000
- 16919 multiletter control sequences out of 15000+600000
- 15038 words of font info for 52 fonts, out of 8000000 for 9000
+ 13960 strings out of 495032
+ 276913 string characters out of 6181556
+ 384874 words of memory out of 5000000
+ 16884 multiletter control sequences out of 15000+600000
+ 9494 words of font info for 30 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
  56i,16n,56p,967b,585s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on plos_template.dvi (7 pages, 40876 bytes).
+Output written on plos_template.dvi (7 pages, 39544 bytes).
