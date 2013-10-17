@@ -466,93 +466,13 @@ float Dynamic::SOC_DP(int sp, int st)
 }
 
 
-/*  ALE: Cambio de funcio CC
+//Neutral CC - MAX value defined for the site
 int Dynamic::SOC_CC(int sp, int st)
 {
-	int num_SpeciesPreys, num_SpeciesPredators;
-	int cc;
-	
-	num_SpeciesPreys = this->_Species.at(sp).get_NumberPreys();	
-	num_SpeciesPredators = this->_Species.at(sp).get_NumberPredators();
-	
-// 	if(num_SpeciesPreys==0) num_SpeciesPreys=1;  //Establezco un valor mínimo para evitar la división por 0!.
-// 	if(num_SpeciesPredators==0) num_SpeciesPredators=1;  //Establezco un valor mínimo para evitar la CC==0!.
- num_SpeciesPreys++;
-	num_SpeciesPredators++;
-	
-// 	cc=(floor(num_SpeciesPredators/num_SpeciesPreys)+1)*(floor(this->_Sites.at(st).get_CarryingCapacity()/(float)this->_Species.size())+1);
-// 	cc=floor(num_SpeciesPredators/num_SpeciesPreys)*(floor(this->_Sites.at(st).get_CarryingCapacity()/(float)this->_Species.size())+1);
-// 	cc=floor(num_SpeciesPredators/num_SpeciesPreys)*this->_Sites.at(st).get_CarryingCapacity();
-// 	cc=floor(exp(num_SpeciesPredators/num_SpeciesPreys)*this->_Sites.at(st).get_CarryingCapacity());
-// 	cc=floor(exp(num_SpeciesPredators/num_SpeciesPreys)*(this->_Sites.at(st).get_CarryingCapacity()/10.0))+1;
-// 	cc=floor(exp(1.0*num_SpeciesPredators/num_SpeciesPreys)*(this->_Sites.at(st).get_CarryingCapacity()/20.0))+1;
-
-// 	cc=floor(exp(1.0*num_SpeciesPredators/num_SpeciesPreys)*(this->_Sites.at(st).get_CarryingCapacity()/200.0))+1;
-// 	cc=floor(this->_Sites.at(st).get_CarryingCapacity()/100.0)+1;
-	
-//  cc=this->_Sites.at(st).get_CarryingCapacity();
-//  cc=this->_Sites.at(st).get_CarryingCapacity()/20.0;
-// 	cc=this->_Sites.at(st).get_CarryingCapacity()/200.0;
-
-//  cc=floor(num_SpeciesPredators/num_SpeciesPreys)*this->_Sites.at(st).get_CarryingCapacity()/100.0;
-//  cc=floor(pow(num_SpeciesPredators/(float)num_SpeciesPreys,0.75)*this->_Sites.at(st).get_CarryingCapacity()/200.0);
-//  cc=floor(pow(num_SpeciesPredators/(float)num_SpeciesPreys,1.0)*this->_Sites.at(st).get_CarryingCapacity()/200.0);
-
-//  cc=floor(pow(num_SpeciesPredators/(float)num_SpeciesPreys,-0.75)*(float)this->_Species.size()*2);
-
-//  cc=floor(pow(num_SpeciesPredators/(float)num_SpeciesPreys,1.0)*(float)this->_Species.size()*2);
-
- cc=floor(exp(2.0*num_SpeciesPredators/num_SpeciesPreys)*(this->_Sites.at(st).get_CarryingCapacity()/200.0))+1;
-//  cerr << "ALE m= << " << num_SpeciesPredators/(float)num_SpeciesPreys << "\t cc= " << cc << endl;
- 
-//  cc=floor(pow((float)num_SpeciesPreys/num_SpeciesPredators,1.0)*(float)this->_Species.size()*2);
-//  cerr << "ALE m= << " << (float)num_SpeciesPreys/num_SpeciesPredators << "\t cc= " << cc << endl;
- 
-//  Calculo la CC en funcion de la cantidad de recursos disponibles para la especie...
- 
- 
-	return cc;
-}
-*/
-// ALE: ahora  calculo la CC en funcion de la cantidad de recursos disponibles para la especie...
-int Dynamic::SOC_CC(int sp, int st)
-{
- int num_SpeciesPreys, num_SpeciesPredators, TotalInds;
-	int num_Species,prey,pred,i;
-	float d_prey=0, d_predOfprey=0, a, cc;
+	float cc;
 		
-	num_Species = this->get_NumberSpecies();
-	num_SpeciesPreys = this->_Species.at(sp).get_NumberPreys();	
-	num_SpeciesPredators = this->_Species.at(sp).get_NumberPredators();
+	cc=this->_Sites.at(st).get_CarryingCapacity()/1.0;
 
- if(num_SpeciesPreys == 0) // si se trata de una presa primaria...
- {
-//  	cc=this->_Sites.at(st).get_CarryingCapacity()/40.0;
-//  	cc=this->_Sites.at(st).get_CarryingCapacity()/20.0;
-//  	cc=this->_Sites.at(st).get_CarryingCapacity()/1.0;
- 	cc=this->_Sites.at(st).get_CarryingCapacity()/1.0;
- }
- else
- {
-			for (i=0;i<num_SpeciesPreys;i++)
-			{
-				prey = this->_Species.at(sp).get_Preys(i);//the id of the prey
-				d_prey += this->_Sites.at(st).get_Density(prey-1);//the density of the prey
-				d_predOfprey += this->get_DensityPredOfPrey(st,prey-1);
-			}
-			
-			if(d_predOfprey == 0) //si las presas no tienen predadores...
-			{
-				TotalInds = this->_Sites.at(st).get_TotalPopulation();
-				d_predOfprey=1.0/(float)TotalInds;
-			}
-			
-			
-			a=1.0;  //Ineficiencia con la que transfiere la energía de un nivel trófico a otro...
-			cc=floor(a*d_prey/d_predOfprey);
-			cc=a*d_prey/d_predOfprey;
-		// 	cerr << "                               ALE: st:"<< st << " sp:" << sp << " cc(d/d_preds)= " << cc << " d=" << d_prey << " d_preds="<< d_predOfprey<< endl;
-	}
 	return floor(cc);
 }
 
@@ -756,16 +676,12 @@ void Dynamic::MonteCarlo(int realization,int space)
 	vector<int> auxIndex;
 	vector<int> id_spe;
 	int alePrint=0; //ALE
- int aleSP3AT0=0; //ALE debugging
- int CantComidas;
+ 	int aleSP3AT0=0; //ALE debugging
+ 	int CantComidas;
  
-//ALE 	id_spe.push_back(0); id_spe.push_back(4);  //ALE
-//ALE 	if(space!=0) this->SpaceOfParameters(3, &id_spe, 1, space);//to increase the 'ndp' of species from the vector 'id_spe'
-//	this->print_File();
 	for (this->mc_timestep=0;this->mc_timestep<this->niter;this->mc_timestep++)//for each iteration
 	{
 		cerr << "MC_TIMESTEP = " << this->mc_timestep << endl;
-// 		if(this->mc_timestep==21 || this->mc_timestep==22) cerr << "ALE1: (t,#sp3)= \t" << this->mc_timestep << "\t" << this->_Sites.at(0).get_Nold(2)<<"\n";
 		
 		if(this->mc_timestep==0)
 		{
@@ -774,10 +690,8 @@ void Dynamic::MonteCarlo(int realization,int space)
 		if((this->mc_timestep>=it_beg)&&(this->mc_timestep<=it_end)) cout << "***********************************************" << endl;
 		for (st=0;st<(int)this->_Sites.size();st++)//for each site
 		{
-// 		 if((this->mc_timestep==78 || this->mc_timestep==79) && (st==6)) cerr << "ALE1: (t,#sp11)= \t" << this->mc_timestep << "\t" << this->_Sites.at(st).get_Nold(10)<<"\n";
 			sumOld=0;
 			auxIndex.clear();
-// 			cerr << "ALE: st: "<< st << " New= | ";//ALE
 			for (sp=0;sp<(int)this->_Species.size();sp++)//to update nold and sumOld values
 			{
 // to calculate nOld_Ini
@@ -785,7 +699,6 @@ void Dynamic::MonteCarlo(int realization,int space)
 // 				fprintf(stderr, "%4d | " , (int)nNewBorn);//ALE
 				
 				nOldIni = this->_Sites.at(st).get_NoldIni(sp);
-// 				fprintf(stderr, "(%3d/%3d):%3d | " , (int)nOldIni, (int)this->_Species.at(sp).get_CC(),(int)nNewBorn);//ALE
 // to calculate exito_Reprodutivo = nNew_born/nOldIni
 				if(nOldIni)
 					this->_Sites.at(st).set_ReproductiveExitus(sp,(float)nNewBorn/nOldIni);
@@ -795,60 +708,26 @@ void Dynamic::MonteCarlo(int realization,int space)
 				this->_Sites.at(st).set_Nold(sp,this->_Sites.at(st).get_Nold(sp) + this->_Sites.at(st).get_Nnew(sp));
 // to make nOldIni = nOld
 				this->_Sites.at(st).set_NoldIni(sp,this->_Sites.at(st).get_Nold(sp));//the number of individuals at the begining of the iteration
-// to make nNew = 0 
 				this->_Sites.at(st).set_Nnew(sp, 0);
-// to make nNew_born = 0
 				this->_Sites.at(st).set_NnewBorn(sp,0);
 			}
-// 			cerr << "-ALE"<< endl; //ALE
 			sumOld=this->_Sites.at(st).calculate_SumOld();
-// 			cerr << "					ALE - @st: " << st << " sumOld= " << sumOld << endl;
 			in=0;
 			if((this->mc_timestep>=it_beg)&&(this->mc_timestep<=it_end)) cout << "***********************************************" << endl;
-// 			if(this->mc_timestep==30 && st==43){cerr << "#sp(11)=" << this->_Sites.at(st).get_NumberIndSpecies(2)<< endl;} //ALE
-			
-			
-// 			while(in < sumOld)
-// 			while(in < 0.2*sumOld) //ALE: para acelerar el tiempo...
-//    cerr << "ALE: sumOld= "<< sumOld << " log(sumOld): " << log(sumOld)<< endl;
-// 			while(in < 30.0*log(sumOld)) //ALE: para acelerar el tiempo...
 			while(in < 10.0*log(sumOld)) //ALE: para acelerar el tiempo...
 			{
-/*			 //ALE debugging
-			 aleSP3AT0=this->_Sites.at(0).get_Nold(2);
-			 cerr << in << " " << aleSP3AT0 << endl;
-			 if (aleSP3AT0<0) {
-			 	cerr << "aleSP3AT0 < 0\n";
-			 	exit(1);
-			 }
-			 //ALE debugging*/
-// 				if((this->mc_timestep==21 || this->mc_timestep==22) && st==0){cerr << "ALE (in="<< in <<" #sp(3)=" << this->_Sites.at(st).get_Nold(2)<< endl;} //ALE
-// 				if((this->mc_timestep==78 || this->mc_timestep==79) && st==6){cerr << "ALE2 (in="<< in <<" #sp(11)=" << this->_Sites.at(st).get_Nold(10)<< endl;} //ALE
-				
 				if((this->mc_timestep>=it_beg)&&(this->mc_timestep<=it_end)) cout << "***** IT = " << this->mc_timestep+1 << " ******* SITE = " << st+1 << "***IND = " << in+1 << " ***** UNTIL " << sumOld << "*****" << endl;
 				this->print_Variables(st);	
-// 				sp = this->_Sites.at(st).get_RandomSpecies(realization,sumOld,this->_Sites.at(st).aux_ListSpecies);//random choice of a species among all of them
 				sp = this->_Sites.at(st).get_RandSP();  //ALE 
-// 				cerr << "ALE - sp: "<< sp << endl;
-// 				if ( (st==0) && (this->mc_timestep==87) && (in==75)) cerr << "sp selected: " << sp+1 << endl; //ALE
 				this->set_SOC_AvrSpcPar(-1,st);//to start the accummulator!!
 				if (sp != -1)//if sp=-1 means that there are no individuals in the list of species given to the method
 				{
-					//ALE
-// 					if( (st==43) && (this->mc_timestep==30) && (sp==10 || sp==2 || sp==8 )) alePrint=1; else alePrint=0;  //ALE
-// 					if( ((st==0) && (this->mc_timestep==87) && (sp==2 || in==75)) || this->mc_timestep==88) alePrint=1; else alePrint=0;  //ALE
-// 					if( ((st==0) && (this->mc_timestep==21 || this->mc_timestep==22) ) ) alePrint=1; else alePrint=0;  //ALE
-// 								if((this->mc_timestep==7 || this->mc_timestep==8) && st==6 && sp>=0){cerr << "ALE3  in: "<< in << "/" << sumOld << " t:" << this->mc_timestep <<" spSelected:" << sp <<" #sp(4).Nnew=" << this->_Sites.at(st).get_Nnew(3)<< endl;} //ALE
-				//ALE
-//      if(alePrint){ cerr << "ALE: sp "<< sp+1 << "@st: "<<st<< "["<< this->_Sites.at(st).get_NumberIndSpecies(sp) << "]"<<endl; }  //ALE
 					this->SOC(sp,st);//Self Organizing Criticality - to change the parameters depending on the densities (ROZENFELD & ALBANO 2004)
 					if (this->_Species.at(sp).ver_NaturalDeath(this->mc_timestep,(float)(random()%PRECISION)/PRECISION) )//verify if the species dies naturally
 					{
 						if(alePrint){ cerr << "<NatDeath> "<<endl;} //ALE
 						this->_Sites.at(st).to_Die(sp);
-// 						this->_Sites.at(st).aux_ListSpecies.at(sp)--; //ALE;
 						this->_Sites.at(st).MCdata.at(sp)--;
-// 						in++; //ALE  hay que hacer una iteracion menos, debido a que hay un individuo menos...
 					}	
 					else//if doesnt die naturally
 					{
@@ -858,70 +737,34 @@ void Dynamic::MonteCarlo(int realization,int space)
 					 }  //ALE
 					 else
 					 {
-// 					 	for(int comidas=1; comidas<=this->get_NumberIndPreys(int st,int sp); comidas++) //trato de comerlas todas...
-// 								for(int comidas=1; comidas<=5; comidas++)
-// 								int num_SpeciesPreys = this->_Species.at(sp).get_NumberPreys();	
-// 								for(int comidas=1; comidas<=num_SpeciesPreys; comidas++)
-//         if(num_SpeciesPreys) CantComidas=floor(log(num_SpeciesPreys));
-//         if(num_SpeciesPreys) CantComidas=floor(sqrt(num_SpeciesPreys));
-// 								else CantComidas=0;
-// 								CantComidas=floor(0.01*log(this->get_NumberIndPreys(st,sp)))+1;
-// 								CantComidas=50;
-// 								CantComidas=this->_Species.at(sp).get_NumberPreys();	
-
-								int cantPreys=this->get_NumberIndPreys(st,sp);
-								if(cantPreys) CantComidas=floor(log(cantPreys))+1;
-								else CantComidas=5;
-// 								CantComidas=5;
-								
-// 								cerr << "ALE - sp:"<< sp <<" CantComidas: " << CantComidas << endl;
-								for(int comidas=1; comidas<=CantComidas; comidas++) //trato de comerlas todas...
-						 		this->DynamicPrey(st, sp, realization);
-						}
+						 int cantPreys=this->get_NumberIndPreys(st,sp);
+						 if(cantPreys) CantComidas=floor(log(cantPreys))+1;
+						 else CantComidas=5;
+						 for(int comidas=1; comidas<=CantComidas; comidas++) //trato de comerlas todas...
+						 this->DynamicPrey(st, sp, realization);
+					}
 					//ALE
-// 					this->DynamicPrey(st, sp, realization);
 					}
 					sumOld = this->_Sites.at(st).calculate_SumOld(); //ALE
 					this->set_SOC_AvrSpcPar(sp,st);
 				}// if has at least one individual in the list of species
+				float migprob=(float)(random()%PRECISION)/PRECISION;
+				if(migprob < ((1./this->tm)*(1./(10.0*log(sumOld))))) this->Migration(realization);//Migration occurs with a probability depending on the total number of individuals in the system (sumOld)
 				in++;
 			}//counter of individuals 
 
-// 			this->print_SOC_SpaceOfParameters(st,realization);//print a column for each site, a file for each species!
-// 			if(this->mc_timestep==1000){this->print_SOC_SpaceOfParameters(st,realization);} //ALE
 			if(this->mc_timestep==this->niter-1){this->print_SOC_SpaceOfParameters(st,realization);} //ALE
 			
-/*			for(int sp_aux=0; sp_aux< this->_Species.size(); sp_aux++)  //ALE
-				cerr << "ALE - repExitus VS bp: " << this->_Sites.at(st).get_ReproductiveExitus(sp_aux) << " " << this->_Species.at(sp_aux).get_BirthProbability() << endl; //ALE
-			cerr << "ALE - repExitus VS bp: " << endl; //ALE*/
-			
-//    if(this->mc_timestep==30 && st==43){cerr << "#sp(11)=" << this->_Sites.at(st).get_NumberIndSpecies(2)<< endl;} //ALE
 		}//sites
-// 		if((this->mc_timestep==78 || this->mc_timestep==79) ){cerr << "ALE3 " << " #sp(11)=" << this->_Sites.at(6).get_Nold(10)<< endl;} //ALE
-		
-// 			ALE DEBUGGING
-// 	if(this->mc_timestep==21 || this->mc_timestep==22) cerr << "ALE2.00: (t,#sp3)= \t" << this->mc_timestep << "\t" << this->_Sites.at(0).get_Nold(2)<<"\n";
-// 			ALE DEBUGGING
-		
-//		this->print_Variables(-1);	
   
 		if((this->mc_timestep!=0)&&(!(this->mc_timestep%this->tm)))//if is time for migration
 		{
-			if((this->mc_timestep>=it_beg)&&(this->mc_timestep<=it_end)) cout << "MIGRATION (" << this->mc_timestep+1 << ") BEGINS HERE!" << endl;
-// 			if(this->mc_timestep==21) cerr << "ALE2.01: (t,#sp3)= \t" << this->mc_timestep << "\t" << this->_Sites.at(0).get_Nold(2)<<"\n";
-// 			if((this->mc_timestep==78 || this->mc_timestep==79) ){cerr << "ALE3.5 " <<" #sp(11)=" << this->_Sites.at(6).get_Nold(10)<< endl;} //ALE
-// 			if((this->mc_timestep==7 || this->mc_timestep==8)){cerr << "ALE4 Antes Mig  "<< " t:" << this->mc_timestep <<" #sp(4).Nnew=" << this->_Sites.at(6).get_Nnew(3)<< endl;} //ALE
-			this->Migration(realization);
-// 			if((this->mc_timestep==7 || this->mc_timestep==8)){cerr << "ALE4 Post  Mig  "<< " t:" << this->mc_timestep <<" #sp(4).Nnew=" << this->_Sites.at(6).get_Nnew(3)<< endl;} //ALE
-// 			if(this->mc_timestep==21) cerr << "ALE2.02: (t,#sp3)= \t" << this->mc_timestep << "\t" << this->_Sites.at(0).get_Nold(2)<<"\n";
+//	 		this->Migration(realization);
 		}
-// 		if((this->mc_timestep==78 || this->mc_timestep==79) ){cerr << "ALE4 " <<" #sp(11)=" << this->_Sites.at(6).get_Nold(10)<< endl;} //ALE
 		if(!(this->mc_timestep%this->show_each))
 		{
-// 		 if(this->mc_timestep==21) cerr << "ALE2.1: (t,#sp3)= \t" << this->mc_timestep << "\t" << this->_Sites.at(0).get_Nold(2)<<"\n";
 			this->acummulate_IndividualsSpecies(realization);
 			this->print_File(realization,space);
-// 			if(this->mc_timestep==21) cerr << "ALE2.2: (t,#sp3)= \t" << this->mc_timestep << "\t" << this->_Sites.at(0).get_Nold(2)<<"\n";
 		}
 		if( (this->mc_timestep!=0)&&(!(this->mc_timestep%this->save_each)) )
 		{
@@ -932,10 +775,7 @@ void Dynamic::MonteCarlo(int realization,int space)
 			this->CoexistenceNetworks(realization,space);
 		}
 // 		this->print_SOC_SpaceOfParameters(-1,realization);//breakline
-// 		if(this->mc_timestep==1000){this->print_SOC_SpaceOfParameters(-1,realization);} //ALE
 		if(this->mc_timestep==this->niter-1){this->print_SOC_SpaceOfParameters(-1,realization);} //ALE
-// 		cerr << "ALE: generé SOC\n";
-// 		if(this->mc_timestep==21 || this->mc_timestep==22) cerr << "ALE3: (t,#sp3)= \t" << this->mc_timestep << "\t" << this->_Sites.at(0).get_Nold(2)<<"\n";
 	}//iterations
 	
 	return;

@@ -11,7 +11,7 @@ rm realMig*.dat
 touch erro
 #tail -f erro &
 #50 realizations
-while [  $seed -lt 1720 ]; do
+while [  $seed -lt 20 ]; do
 	echo The seed is $seed
 #while [  $seed -lt 50 ]; do
 # 	rm SOC*.dat
