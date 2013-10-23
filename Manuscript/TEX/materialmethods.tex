@@ -30,24 +30,31 @@ predators and a high number of resources available.
 \subsubsection{Model 1: Dispersal dynamics in non-informed landscapes}
 
 Our first model assumes an individual that emigrates moves with
-probability proportional to the distance between the original and the receiving sites and to the 
-carrying capacity of the receiving site. Thus, individual movement is independent 
-of the state of each receiving site and they do not know the number of resources or
-predators before the emigration. This leads to the dispersal rate of
-species $k_{\mathcal{\phi}}$ in metacommunity $\mathcal{\phi}$ from
-site $j$ to site $i$ (where $\mathcal{\phi}$ stands either for the
-basal ($R$), intermediate ($I$), or top predator metacommunity ($P$))
+probability proportional to the distance between the original and the
+receiving sites and to the carrying capacity of the receiving
+site. Thus, individual movement is independent of the state of each
+receiving site. This means individuals do not know the number of
+resources or predators before the emigration. This leads to the
+dispersal rate of species $k_{\mathcal{\phi}}$ in metacommunity
+$\mathcal{\phi}$ from site $j$ to site $i$ (where $\mathcal{\phi}$
+stands either for the basal ($R$), intermediate ($I$), or top predator
+metacommunity ($P$))
 
 \begin{equation}
-  m^{k_{\phi}}_{ij} = \mathcal{K}^{i}_{\phi} m_{\phi} d_{ij} \mathcal{M}_{\phi},
+  m^{k_{\phi}}_{ij} = \mathcal{K}^{i}_{\phi} m_{\phi} d_{ij} \mathcal{M}^{j}_{\phi},
 \end{equation}
-where $\mathcal{K}^{i}_{\phi}$, $m_{\phi}$, $d_{ij}$, and
-$\mathcal{M}_{\phi}$ are the carrying capacity of the receiving site
-$i$ of metacommunity $\phi$, the background emigration rate of
-metacommunity $\phi$, the geographical effective distance between site $j$ and site
-$i$, and the mobility probability that is 1 in the
-non-informed model because individuals move regardless the state of
-resource availability and number of predators in the receiving site.
+where $\mathcal{K}^{i}_{\phi}$, $m_{\phi}$, $d_{ij}$ are the carrying
+capacity of the receiving site $i$ of metacommunity $\phi$, the
+background emigration rate of metacommunity $\phi$, and the
+geographical effective distance between site $j$ and site $i$,
+respectively. $\mathcal{M}^{j}_{\phi}$ is the mobility probability of
+site $j$. This probability is 1 in the non-informed model because
+reproductive success is not taken into account to leave site $j$. 
+
+
+Check mobility probability and fitness. Does the current index break down neutrality assumptions?
+%individuals move regardless the state of resource availability and
+%number of predators in the receiving site.
 %($d_{ij}$ is a value between 0 and 1 = 1 if there is a link between site $i$ and site $j$ and 0 otherwise)
 
 Given the dispersal rate, the number of individuals of species $k$ in
