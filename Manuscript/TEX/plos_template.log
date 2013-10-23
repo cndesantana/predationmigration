@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2013.10.16)  23 OCT 2013 13:41
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2013.10.16)  23 OCT 2013 15:53
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -602,4 +602,4 @@ Here is how much of TeX's memory you used:
  14 hyphenation exceptions out of 8191
  56i,16n,56p,967b,585s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on plos_template.dvi (7 pages, 39660 bytes).
+Output written on plos_template.dvi (7 pages, 39644 bytes).
