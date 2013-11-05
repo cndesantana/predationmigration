@@ -30,26 +30,42 @@ predators and a high number of resources available.
 \subsubsection{Model 1: Dispersal dynamics in non-informed landscapes}
 
 Our first model assumes an individual that emigrates moves with
-probability proportional to the distance between the original and the
-receiving sites and to the carrying capacity of the receiving
-site. Thus, individual movement is independent of the state of each
-receiving site. This means individuals do not know the number of
-resources or predators before the emigration. This leads to the
+probability inversely proportional to the distance between the
+original and the receiving sites and to the carrying capacity of the
+receiving site. Thus, individual movement is independent of the state
+of each receiving site. This means individuals do not know the number
+of resources or predators before the emigration. This leads to the
 dispersal rate of species $k_{\mathcal{\phi}}$ in metacommunity
 $\mathcal{\phi}$ from site $j$ to site $i$ (where $\mathcal{\phi}$
 stands either for the basal ($R$), intermediate ($I$), or top predator
 metacommunity ($P$))
 
 \begin{equation}
-  m^{k_{\phi}}_{ij} = \mathcal{K}^{i}_{\phi} m_{\phi} d_{ij} \mathcal{M}^{j}_{\phi},
+  m^{k_{\phi}}_{ij} = \frac{\mathcal{K}^{k_{\phi}}_{i} m_{\phi} \mathcal{M}^{k_{\phi}}_{j}}{d_{ij}},
 \end{equation}
-where $\mathcal{K}^{i}_{\phi}$, $m_{\phi}$, $d_{ij}$ are the carrying
-capacity of the receiving site $i$ of metacommunity $\phi$, the
-background emigration rate of metacommunity $\phi$, and the
+where $\mathcal{K}^{k_{\phi}}_{i}$, $m_{\phi}$, $d_{ij}$ are the
+carrying capacity of the receiving site $i$ of metacommunity $\phi$,
+the background emigration rate of metacommunity $\phi$, and the
 geographical effective distance between site $j$ and site $i$,
-respectively. $\mathcal{M}^{j}_{\phi}$ is the mobility probability of
-site $j$. This probability is 1 in the non-informed model because
-reproductive success is not taken into account to leave site $j$. 
+respectively. $\mathcal{M}^{k_{\phi}}_{j}$ is the mobility probability
+of species $k$ from site $j$, and it is defined as 1 -
+$r^{k_{\phi}}_{j}$ where $r^{k_{\phi}}_{j}$ is the reproductive
+success of species $k$ in site $j$. If individuals of species $k$ were
+able to know their reproductive success in any site, then they would
+have information to decide where to go to increase their reproductive
+success. For example, if species $k$ reproduces in site $j$ better
+than in any other site (high $r^{k_{\phi}}_{j}$), then individuals of
+species $k$ prefer to stay in site $j$, thus the mobility probability
+is close to zero. This describes the scenario of an informed
+landscape. However, for non-informed landscapes, we assume individuals
+of species $k$ do not have information about their reproductive
+success in any site. Thus, the mobility probability is 1.
+
+Mobility probability 1 
+
+ This probability is 1 in the
+non-informed model because reproductive success is not taken into
+account to leave site $j$.
 
 
 Check mobility probability and fitness. Does the current index break down neutrality assumptions?

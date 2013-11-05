@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.5.1)  23 OCT 2013 17:32
+This is pdfTeX, Version 3.1415926-1.40.10 (TeX Live 2009/Debian) (format=latex 2012.5.1)  5 NOV 2013 16:27
 entering extended mode
  %&-line parsing enabled.
 **plos_template
@@ -569,16 +569,16 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
  [1
 
 ] [2]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 174.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 197.
 
 
 (/usr/share/texmf-texlive/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 174.
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 197.
  [3] [4]
-Overfull \hbox (31.7144pt too wide) detected at line 347
+Overfull \hbox (31.7144pt too wide) detected at line 370
 []
  []
 
@@ -595,4 +595,4 @@ Here is how much of TeX's memory you used:
  714 hyphenation exceptions out of 8191
  56i,16n,56p,967b,586s stack positions out of 5000i,500n,10000p,200000b,50000s
 
-Output written on plos_template.dvi (7 pages, 39840 bytes).
+Output written on plos_template.dvi (7 pages, 41164 bytes).
