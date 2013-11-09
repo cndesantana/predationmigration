@@ -81,24 +81,23 @@ site $i$. This leads to the dispersal rate of species
 $k_{\mathcal{\phi}}$ in metacommunity $\mathcal{\phi}$ from site $j$
 to site $i$
 
-\begin{equation}
-  m^{k_{\phi}}_{ij} = \frac{\mathcal{K}^{k_{\phi}}_{i} m_{\phi} \mathcal{M}^{k_{\phi}}_{j}}{d_{ij}},
-\end{equation}
+%\begin{equation}
+%  m^{k_{\phi}}_{ij} = \frac{\mathcal{K}^{k_{\phi}}_{i} m_{\phi} \mathcal{M}^{k_{\phi}}_{j}}{d_{ij}},
+%\end{equation}
 
 \begin{equation}
   m^{k_{\phi}}_{ij} = \frac{\mathcal{K}^{k_{\phi}}_{i} m_{\phi}}{d_{ij}} \mathcal{M}^{k_{\phi}}_{j} \frac{\Delta F^{k\phi}_{ij}}{\sum_{n}^{Neigh(j)}\Delta F^{k\phi}_{nj}},
 \end{equation}
 
 
-where, as in Model 1, $\mathcal{K}^{k_{\phi}}_{i}$, $m_{\phi}$,
-$d_{ij}$ are the carrying capacity of the receiving site $i$ of
-metacommunity $\phi$, the background emigration rate of metacommunity
-$\phi$, and the geographical effective distance between site $j$ and
-site $i$, respectively. To take into account informed landscapes we
-introduce the concepts of mobility probability and the preference of a species for moving from a site $j$ to a site $i$. 
+where, as in Model 1, $\mathcal{K}^{k_{\phi}}_{i}$, $m_{\phi}$, $d_{ij}$ are
+the carrying capacity of the receiving site $i$ of metacommunity $\phi$, the
+background emigration rate of metacommunity $\phi$, and the geographical
+effective distance between site $j$ and site $i$, respectively. 
 
-The mobility probability of species $k$ from site $j$,
-$\mathcal{M}^{k_{\phi}}_{j}$, is defined as 1 -
+To take into account informed landscapes we introduce the concepts of mobility
+probability and the preference of a species a site. The mobility probability of
+species $k$ from site $j$, $\mathcal{M}^{k_{\phi}}_{j}$, is defined as 1 -
 $\frac{r^{k_{\phi}}_{j}}{r^{max_{\phi}}_{j}}$ where $r^{k_{\phi}}_{j}$ and
 $r^{max_{\phi}}_{j}$ are the reproductive success of species $k$ and the
 maximum reproductive success in metacommunity $\phi$ in site $j$, respectively.
@@ -109,15 +108,15 @@ better than in any other site (high $r^{k_{\phi}}_{j}$), then individuals of
 species $k$ prefer to stay in site $j$, thus the mobility probability is close
 to zero.
 
-The preference of a species $k$ for moving from a site $j$ to a site $i$,
-$\Delta F^{k\phi}_{ij}$, is defined as the difference between the preference of
-$k$ to stay in $j$, $F^{k\phi}_{j}$, and his preference to stay in $i$,
-$F^{k\phi}_{i}$, where the preference of a species $k$ for a site $j$ is given
-by the difference in the abundance of prey and the abundance of predators of
-$k$ in $j$, $p^{k\phi}_{j} - P^{k\phi}_{j}$.  
+The preference of a species $k$ for a site $j$, $F^{k\phi}_{i}$, represents how
+good the biotic conditions of $j$ are for species $k$, and is given by the
+difference in the abundance of prey and the abundance of predators of $k$ in
+$j$, $p^{k\phi}_{j}
+- P^{k\phi}_{j}$.  The higher is the difference between the preference of a
+  species $k$ for a site $j$ and its preferences for a site $j$, $\Delta
+F^{k\phi}_{ij}$, ther higher is its probability to move from $j$ to $i$. 
 
 SEGUIR DESDE AQUI
-
 
 Given the dispersal rate, the number of individuals of species $k$ in
 metacommunity $\phi$ that move from site $j$ to site $i$ is
@@ -171,7 +170,6 @@ is defined as seen below:
 \subsubsection{Model 3: Predator-prey ratio dispersal dynamics in informed and niche-driven landscapes}
 
 
-
 \subsection{Demographic dynamics}
 
 In the previous section we have described the dispersal dynamics. Here
@@ -181,26 +179,27 @@ we describe the birth and death probabilities associated with each model...
 
 At each time (specify the MC rate) we leave all the individuals of
 each site $i$ to be choosen by a \emph{Multinomial Distribution}
-\cite{levin1981representation}. The chosen individual $k$ can have
+\cite{levin1981representation}. The chosen individuals can have
 three different behaviors:
 \begin{enumerate}
 \item it can die for natural reasons;
 \item it can eat one individual among its prey; 
 \item if $k$ have eaten an individual among its prey, so it can give an offspring. 
 \end{enumerate}
-If $k$ individual is not a predator (if it is a basal species) the
-model assumes it has infinity food suply and the only possible
-behaviors are 1. and 2.. For each MC time-step $mc$, this simulation
-is repeated for all individuals of each patch of the landscape. The
-births will occur only if there is free space in the patch $i$, that
-means, if the number of individuals alive at $i$ is lower than its
-carrying capacity ($cc$). For each time $t$ in which one individual of
-species $k$ gives an offspring in a patch $i$, its number of
-individuals in this patch will be increased by 1; for each time $t$ in
-which one individual of species $k$ dies naturally or by predation in
-a patch $i$, its number of individuals will be decreased by 1. In
-Figure \ref{fig:Fluxogram} we show a fluxogram that summarizes the
-running of the predation dynamic of the model.
+
+Individuals from metacommunity $R$ are assumed to have infinity food suply, so
+the only possible behaviors are 1. and 2.. 
+
+For each MC time-step $mc$, this simulation is repeated for all individuals of
+each patch of the landscape. The births will occur only if there is free space
+in the patch $i$, that means, if the number of individuals alive at $i$ is
+lower than its carrying capacity ($cc$). For each time $t$ in which one
+individual of species $k$ gives an offspring in a patch $i$, its number of
+individuals in this patch will be increased by 1; for each time $t$ in which
+one individual of species $k$ dies naturally or by predation in a patch $i$,
+its number of individuals will be decreased by 1. In Figure \ref{fig:Fluxogram}
+we show a fluxogram that summarizes the running of the predation dynamic of the
+model.
 
 %%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%% B I R T H      P R O B A B I L I T Y
