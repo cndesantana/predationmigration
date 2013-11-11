@@ -212,58 +212,81 @@ EQUATION NOT TRANSFORMED!
 \item \textbf{Birth Probability}
 \end{itemize}
 
-\begin{align*}
-Bp\left(k\right) & = \tikz[baseline]{\node[fill=blue!20,ellipse,anchor=base] (t1) {$\left[1 - \rho\left(k\right)\right]$};} \times \tikz[baseline]{\node[fill=red!20,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\rho\left(b\right)\left(1-\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)\right]$};} \\
-& \times \tikz[baseline]{\node[fill=green!20,anchor=base] (t3) {$\left[1-\sum_{c \in P\left(k\right)}\rho\left(c\right) \right]$};}
-\end{align*}
+%\begin{align*}
+%Bp\left(k\right) & = \tikz[baseline]{\node[fill=blue!20,ellipse,anchor=base] (t1) {$\left[1 - \rho\left(k\right)\right]$};} \times \tikz[baseline]{\node[fill=red!20,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\rho\left(b\right)\left(1-\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)\right]$};} \\
+%& \times \tikz[baseline]{\node[fill=green!20,anchor=base] (t3) {$\left[1-\sum_{c \in P\left(k\right)}\rho\left(c\right) \right]$};}
+%\end{align*}
+
+If $\phi$ is Basal
+
+$B^{k_{\phi}}_{j} = \frac{N^{k_{\phi}}_{j}}{J_{j}} (1-\frac{N^{P(k_{\phi})}_{j}}{J_{j}})$ \\ 
+$D^{k_{\phi}}_{j} = 1.0 $ \\
+$ND^{k_{\phi}}_{j} = \frac{N^{k_{\phi}}_{j}}{J_{j}} \sum (1-\frac{N^{p(k_{\phi})}_{j}}{J_{j}}) (\frac{N^{P(p(k_{\phi}))}_{j}}{J_{j}})$ \\
+$K^{k_{\phi}}_{j} = MAX(K)$ \\
+
+If $\phi$ is Intermediate
+
+$B^{k_{\phi}}_{j} = \frac{N^{k_{\phi}}_{j}}{J_{j}} \sum (\frac{N^{p(k_{\phi})}_{j}}{J_{j}}) (1-\frac{N^{P(p(k_{\phi}))}_{j}}{J_{j}}) (1-\frac{N^{P(k_{\phi})}_{j}}{J_{j}})$  \\
+$D^{k_{\phi}}_{j} = \frac{N^{k_{\phi}}_{j}}{J_{j}} \sum (1 - \frac{N^{p(k_{\phi})}_{j}}{J_{j}}) (\frac{N^{P(p(k_{\phi}))}_{j}}{J_{j}}) (1-\frac{N^{P(k_{\phi})}_{j}}{J_{j}})$ \\
+$ND^{k_{\phi}}_{j} = \frac{N^{k_{\phi}}_{j}}{J_{j}} \sum (1-\frac{N^{p(k_{\phi})}_{j}}{J_{j}}) (\frac{N^{P(p(k_{\phi}))}_{j}}{J_{j}})$ \\
+$K^{k_{\phi}}_{j} = a \frac{N^{p(k_{\phi})}_{j}}{N^{P(p(k_{\phi}))}}$ \\
+
+If $\phi$ is Top 
+
+$B^{k_{\phi}}_{j} = \frac{N^{k_{\phi}}_{j}}{J_{j}} \sum (\frac{N^{p(k_{\phi})}_{j}}{J_{j}}) (1-\frac{N^{P(p(k_{\phi}))}_{j}}{J_{j}})$  \\
+$D^{k_{\phi}}_{j} = \frac{N^{k_{\phi}}_{j}}{J_{j}} \sum (1 - \frac{N^{p(k_{\phi})}_{j}}{J_{j}}) (\frac{N^{P(p(k_{\phi}))}_{j}}{J_{j}})$ \\
+$ND^{k_{\phi}}_{j} = \frac{N^{k_{\phi}}_{j}}{J_{j}} \sum (1-\frac{N^{p(k_{\phi})}_{j}}{J_{j}}) (\frac{N^{P(p(k_{\phi}))}_{j}}{J_{j}})$ \\
+$K^{k_{\phi}}_{j} = a \frac{N^{p(k_{\phi})}_{j}}{N^{P(p(k_{\phi}))}}$ \\
+
+
 
 \textbf{Where:} Availability of Resources of Basal Species is 1.0
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%% D E A T H     P R O B A B I L I T Y
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-EQUATION NOT TRANSFORMED!
-
-\vspace{1cm}
-\begin{itemize}
-\item \textbf{Death Probability}
-\end{itemize}
-
-\begin{align*}
-Dp\left(k\right) & = \tikz[baseline]{\node[fill=blue!20,ellipse,anchor=base] (t1) {$\left[\rho\left(k\right)\right]$};} \times \tikz[baseline]{\node[fill=red!20,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\left(1-\rho\left(b\right)\right)\left(\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)\right]$};} \\ 
-& \times \tikz[baseline]{\node[fill=green!20,anchor=base] (t3) {$\left[1-\sum_{c \in P\left(k\right)}\rho\left(c\right) \right]$};} 
-\end{align*}
+%EQUATION NOT TRANSFORMED!
+%
+%\vspace{1cm}
+%\begin{itemize}
+%\item \textbf{Death Probability}
+%\end{itemize}
+%
+%\begin{align*}
+%Dp\left(k\right) & = \tikz[baseline]{\node[fill=blue!20,ellipse,anchor=base] (t1) {$\left[\rho\left(k\right)\right]$};} \times \tikz[baseline]{\node[fill=red!20,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\left(1-\rho\left(b\right)\right)\left(\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)\right]$};} \\ 
+%& \times \tikz[baseline]{\node[fill=green!20,anchor=base] (t3) {$\left[1-\sum_{c \in P\left(k\right)}\rho\left(c\right) \right]$};} 
+%\end{align*}
 
 \textbf{Where:} Death Probability of Basal Species is 1.0
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%% N A T U R A L     D E A T H     P R O B A B I L I T Y
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-EQUATION NOT TRANSFORMED!
-
-\vspace{1cm}
-\begin{itemize}
-\item \textbf{Natural Death Probability}
-\end{itemize}
-
-\begin{align*}
-NDp\left(k\right) & = \tikz[baseline]{\node[fill=blue!20,ellipse,anchor=base] (t1) {$\left[\rho\left(k\right)\right]$};} \times \tikz[baseline]{\node[fill=red!20,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\left(1-\rho\left(b\right)\right)\left(\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)\right]$};} \\ 
-& \times \tikz[baseline]{\node[fill=green!20,anchor=base] (t3) {$\left[1-\sum_{c \in P\left(k\right)}\rho\left(c\right) \right]$};} 
-\end{align*}
+%EQUATION NOT TRANSFORMED!
+%
+%\vspace{1cm}
+%\begin{itemize}
+%\item \textbf{Natural Death Probability}
+%\end{itemize}
+%
+%\begin{align*}
+%NDp\left(k\right) & = \tikz[baseline]{\node[fill=blue!20,ellipse,anchor=base] (t1) {$\left[\rho\left(k\right)\right]$};} \times \tikz[baseline]{\node[fill=red!20,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\left(1-\rho\left(b\right)\right)\left(\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)\right]$};} \\ 
+%& \times \tikz[baseline]{\node[fill=green!20,anchor=base] (t3) {$\left[1-\sum_{c \in P\left(k\right)}\rho\left(c\right) \right]$};} 
+%\end{align*}
 
 %%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%% S P E C I E S     C A R R Y I N G     C A P A C I T Y
 %%%%%%%%%%%%%%%%
 EQUATION NOT TRANSFORMED!
 
-\vspace{1cm}
-\begin{itemize}
-\item \textbf{Carrying Capacity (for each species in each site)}
-\end{itemize}
-
-\begin{align*}
-CC\left(k\right) & =  \tikz[baseline]{\node[fill=red!20,ellipse,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\frac{\left(\rho\left(b\right)\right)}{\left(\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)}\right]$};}
-\end{align*}
+%\vspace{1cm}
+%\begin{itemize}
+%\item \textbf{Carrying Capacity (for each species in each site)}
+%\end{itemize}
+%
+%\begin{align*}
+%CC\left(k\right) & =  \tikz[baseline]{\node[fill=red!20,ellipse,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\frac{\left(\rho\left(b\right)\right)}{\left(\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)}\right]$};}
+%\end{align*}
 
 \subsubsection{Model 2: Predator-prey ratio dispesal dynamics in informed landscapes}
 
@@ -295,64 +318,64 @@ running of the predation dynamic of the model.
 %%%%%%%%%%%%%%%%%%
 EQUATION NOT TRANSFORMED!
 
-\vspace{1cm}
-\begin{itemize}
-\item \textbf{Birth Probability}
-\end{itemize}
+%\vspace{1cm}
+%\begin{itemize}
+%\item \textbf{Birth Probability}
+%\end{itemize}
+%
+%
+%\begin{align*}
+%Bp\left(k\right) & = \tikz[baseline]{\node[fill=blue!20,ellipse,anchor=base] (t1) {$\left[1 - \rho\left(k\right)\right]$};} \times \tikz[baseline]{\node[fill=red!20,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\rho\left(b\right)\left(1-\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)\right]$};} \\
+%& \times \tikz[baseline]{\node[fill=green!20,anchor=base] (t3) {$\left[1-\sum_{c \in P\left(k\right)}\rho\left(c\right) \right]$};}
+%\end{align*}
 
-
-\begin{align*}
-Bp\left(k\right) & = \tikz[baseline]{\node[fill=blue!20,ellipse,anchor=base] (t1) {$\left[1 - \rho\left(k\right)\right]$};} \times \tikz[baseline]{\node[fill=red!20,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\rho\left(b\right)\left(1-\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)\right]$};} \\
-& \times \tikz[baseline]{\node[fill=green!20,anchor=base] (t3) {$\left[1-\sum_{c \in P\left(k\right)}\rho\left(c\right) \right]$};}
-\end{align*}
-
-\textbf{Where:} Availability of Resources of Basal Species is 1.0
+%\textbf{Where:} Availability of Resources of Basal Species is 1.0
 
 %%%%%%%%%%%%%%%%%%%%%%%%%%
 %%%%%%%%%%%%%%%%%%%%%%%%%%% D E A T H     P R O B A B I L I T Y
 %%%%%%%%%%%%%%%%%%%%%%%%%%
-EQUATION NOT TRANSFORMED!
-
-\vspace{1cm}
-\begin{itemize}
-\item \textbf{Death Probability}
-\end{itemize}
-
-\begin{align*}
-Dp\left(k\right) & = \tikz[baseline]{\node[fill=blue!20,ellipse,anchor=base] (t1) {$\left[\rho\left(k\right)\right]$};} \times \tikz[baseline]{\node[fill=red!20,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\left(1-\rho\left(b\right)\right)\left(\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)\right]$};} \\ 
-& \times \tikz[baseline]{\node[fill=green!20,anchor=base] (t3) {$\left[1-\sum_{c \in P\left(k\right)}\rho\left(c\right) \right]$};} 
-\end{align*}
-
-\textbf{Where:} Death Probability of Basal Species is 1.0
-
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%%%%%%%%%%%%% N A T U R A L     D E A T H     P R O B A B I L I T Y
-%%%%%%%%%%%%%%%%%%%%%%%%%%
-EQUATION NOT TRANSFORMED!
-
-\vspace{1cm}
-\begin{itemize}
-\item \textbf{Natural Death Probability}
-\end{itemize}
-
-\begin{align*}
-NDp\left(k\right) & = \tikz[baseline]{\node[fill=blue!20,ellipse,anchor=base] (t1) {$\left[\rho\left(k\right)\right]$};} \times \tikz[baseline]{\node[fill=red!20,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\left(1-\rho\left(b\right)\right)\left(\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)\right]$};} \\ 
-& \times \tikz[baseline]{\node[fill=green!20,anchor=base] (t3) {$\left[1-\sum_{c \in P\left(k\right)}\rho\left(c\right) \right]$};} 
-\end{align*}
-
-%%%%%%%%%%%%%%%%
-%%%%%%%%%%%%%%%% S P E C I E S     C A R R Y I N G     C A P A C I T Y
-%%%%%%%%%%%%%%%%
-EQUATION NOT TRANSFORMED!
-
-\vspace{1cm}
-\begin{itemize}
-\item \textbf{Carrying Capacity (for each species in each site)}
-\end{itemize}
-
-\begin{align*}
-CC\left(k\right) & =  \tikz[baseline]{\node[fill=red!20,ellipse,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\frac{\left(\rho\left(b\right)\right)}{\left(\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)}\right]$};}
-\end{align*}
+%EQUATION NOT TRANSFORMED!
+%
+%\vspace{1cm}
+%\begin{itemize}
+%\item \textbf{Death Probability}
+%\end{itemize}
+%
+%\begin{align*}
+%Dp\left(k\right) & = \tikz[baseline]{\node[fill=blue!20,ellipse,anchor=base] (t1) {$\left[\rho\left(k\right)\right]$};} \times \tikz[baseline]{\node[fill=red!20,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\left(1-\rho\left(b\right)\right)\left(\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)\right]$};} \\ 
+%& \times \tikz[baseline]{\node[fill=green!20,anchor=base] (t3) {$\left[1-\sum_{c \in P\left(k\right)}\rho\left(c\right) \right]$};} 
+%\end{align*}
+%
+%\textbf{Where:} Death Probability of Basal Species is 1.0
+%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%%%%%%%%%%%%% N A T U R A L     D E A T H     P R O B A B I L I T Y
+%%%%%%%%%%%%%%%%%%%%%%%%%%%
+%EQUATION NOT TRANSFORMED!
+%
+%\vspace{1cm}
+%\begin{itemize}
+%\item \textbf{Natural Death Probability}
+%\end{itemize}
+%
+%\begin{align*}
+%NDp\left(k\right) & = \tikz[baseline]{\node[fill=blue!20,ellipse,anchor=base] (t1) {$\left[\rho\left(k\right)\right]$};} \times \tikz[baseline]{\node[fill=red!20,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\left(1-\rho\left(b\right)\right)\left(\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)\right]$};} \\ 
+%& \times \tikz[baseline]{\node[fill=green!20,anchor=base] (t3) {$\left[1-\sum_{c \in P\left(k\right)}\rho\left(c\right) \right]$};} 
+%\end{align*}
+%
+%%%%%%%%%%%%%%%%%
+%%%%%%%%%%%%%%%%% S P E C I E S     C A R R Y I N G     C A P A C I T Y
+%%%%%%%%%%%%%%%%%
+%EQUATION NOT TRANSFORMED!
+%
+%\vspace{1cm}
+%\begin{itemize}
+%\item \textbf{Carrying Capacity (for each species in each site)}
+%\end{itemize}
+%
+%\begin{align*}
+%CC\left(k\right) & =  \tikz[baseline]{\node[fill=red!20,ellipse,anchor=base] (t2) {$\left[\sum_{b \in H\left(k\right)}\frac{\left(\rho\left(b\right)\right)}{\left(\sum_{c \in P\left(b\right)}\rho\left(c\right)\right)}\right]$};}
+%\end{align*}
 
 
 \subsubsection{Model 3: Predator-prey ratio dispersal dynamics in informed and niche-driven landscapes}

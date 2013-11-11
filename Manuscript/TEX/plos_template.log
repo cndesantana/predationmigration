@@ -1,4 +1,4 @@
-This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2013.10.16)  7 NOV 2013 15:24
+This is pdfTeX, Version 3.1415926-2.5-1.40.14 (TeX Live 2013/Debian) (format=latex 2013.10.16)  11 NOV 2013 16:05
 entering extended mode
  restricted \write18 enabled.
  %&-line parsing enabled.
@@ -576,29 +576,44 @@ LaTeX Font Info:    Font shape `OT1/ptm/bx/n' in size <10> not available
  [1
 
 ] [2]
-LaTeX Font Info:    Try loading font information for OMS+ptm on input line 217.
+LaTeX Font Info:    Try loading font information for OMS+ptm on input line 212.
 
 
 (/usr/share/texlive/texmf-dist/tex/latex/psnfss/omsptm.fd
 File: omsptm.fd 
 )
 LaTeX Font Info:    Font shape `OMS/ptm/m/n' in size <10> not available
-(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 217.
- [3] [4] [5]
-Overfull \hbox (31.7144pt too wide) detected at line 390
+(Font)              Font shape `OMS/cmsy/m/n' tried instead on input line 212.
+
+Underfull \hbox (badness 10000) in paragraph at lines 222--226
+
+ []
+
+
+Underfull \hbox (badness 10000) in paragraph at lines 229--233
+
+ []
+
+[3]
+Underfull \hbox (badness 10000) in paragraph at lines 236--240
+
+ []
+
+[4]
+Overfull \hbox (31.7144pt too wide) detected at line 408
 []
  []
 
 ) (./plos_template.bbl)
 File: ./figures/Fluxogram.eps Graphic file (type eps)
- <./figures/Fluxogram.eps> [6] [7] (./plos_template.aux) ) 
+ <./figures/Fluxogram.eps> [5] [6] (./plos_template.aux) ) 
 Here is how much of TeX's memory you used:
- 13960 strings out of 495032
- 276913 string characters out of 6181556
+ 13919 strings out of 495032
+ 276182 string characters out of 6181556
  383874 words of memory out of 5000000
- 16884 multiletter control sequences out of 15000+600000
+ 16843 multiletter control sequences out of 15000+600000
  9494 words of font info for 30 fonts, out of 8000000 for 9000
  14 hyphenation exceptions out of 8191
- 56i,16n,56p,967b,585s stack positions out of 5000i,500n,10000p,200000b,80000s
+ 56i,6n,56p,967b,318s stack positions out of 5000i,500n,10000p,200000b,80000s
 
-Output written on plos_template.dvi (7 pages, 42744 bytes).
+Output written on plos_template.dvi (6 pages, 28640 bytes).
