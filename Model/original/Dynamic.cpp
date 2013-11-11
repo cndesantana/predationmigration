@@ -383,7 +383,7 @@ float Dynamic::SOC_NDP(int sp, int st)
 	float proportion = this->_Sites.at(st).get_Density(sp);
 // 	if ((num_SpeciesPreys > 0))    Dp *= dx;
 	Dp = proportion*dx;
-	if( (num_SpeciesPredators == 0) && (proportion==1) ) Dp=1.0;
+//	if( (num_SpeciesPredators == 0) && (proportion==1) ) Dp=1.0;
 // 	if ((num_SpeciesPreys > 0))    Dp *= 1.0-dx;
 // 	if ((num_SpeciesPredators >0)) Dp *= 1.0-dy;
 // 	if ((num_SpeciesPredators >0)) Dp *= dy;
@@ -451,11 +451,11 @@ float Dynamic::SOC_DP(int sp, int st)
 	}*/
 	
 // 	Dp=1.0;	
-	Dp=this->_Sites.at(st).get_Density(sp);
+	Dp=this->_Sites.at(st).get_Density(sp);//TOP AND INTERMEDIATE SPECIES
 // 	Dp=1.0-this->_Sites.at(st).get_Density(sp);
-	if ((num_SpeciesPredators >0)) Dp *= 1.0-dy;
-	if ((num_SpeciesPreys > 0))    Dp *= dx;
-	else Dp=1.0;
+	if ((num_SpeciesPredators >0)) Dp *= 1.0-dy;//INTERMEDIATE SPECIES
+	if ((num_SpeciesPreys > 0))    Dp *= dx;//TOP AND INTERMEDIATE SPECIES
+	else Dp=1.0; //BASAL SPECIES
 	
 
 // 	Dp = ((2*d_total_pred - 1)*(2*d_total_pred -1));
@@ -585,37 +585,10 @@ float Dynamic::SOC_BP(int sp, int st)
 // 		by += (1.0 - d_pred);
 		by += d_pred;
 	}
-// 	if ((num_SpeciesPreys > 0) || (num_SpeciesPredators >0)) Bp = (float)(bx + by)/(num_SpeciesPreys + num_SpeciesPredators);
- /*Bp=0; countAux=0;
-	if ((num_SpeciesPreys > 0))    {Bp += (float)bx/num_SpeciesPreys; countAux++;}  //ALE
-	if ((num_SpeciesPredators >0)) {Bp += (float)by/num_SpeciesPredators;  countAux++;}  //ALE*/
-// 	else Bp = 0;
-
-//  Bp=1.0-this->_Sites.at(st).get_Density(sp); countAux++;
-//  Bp=exp(-1.0*this->_Sites.at(st).get_Density(sp));
- Bp=1.0-this->_Sites.at(st).get_Density(sp);
-//  Bp/=(float)num_Species*0.5;
- 
-/* if ((num_SpeciesPreys > 0))    Bp *= (float)bx/num_SpeciesPreys;
- if ((num_SpeciesPredators >0)) Bp *= (float)by/num_SpeciesPredators;*/
- 
-//  if ((num_SpeciesPreys > 0))    Bp*=1.0-exp(-1.0*bx/num_SpeciesPreys); //{Bp += (float)bx/num_SpeciesPreys; countAux++;}
- if ((num_SpeciesPreys > 0))    Bp*=bx; //ALE
- 
-//  Bp/=(float)countAux;
-//  if ((num_SpeciesPredators >0)) Bp*=1.0-exp(-1.2*by/num_SpeciesPredators); //{Bp *= (float)by/num_SpeciesPredators/(float)countAux;}
-//  if ((num_SpeciesPredators >0) && (by>0)) Bp*=0.85*(1.0-exp(-1.0*by/num_SpeciesPredators)); //{Bp *= (float)by/num_SpeciesPredators/(float)countAux;}
-//  if ((num_SpeciesPredators >0) && (by>0)) Bp*=0.7*(1.0-exp(-1.0*by/num_SpeciesPredators)); //ALE
-
-//  if ((num_SpeciesPredators >0) && (by>0)) Bp*=1.0*(1.0-exp(-1.0*by/num_SpeciesPredators)); //ALE
-  if ((num_SpeciesPredators >0) && (by>0)) Bp*=1.0-by; //ALE
-//  Bp/=(float)countAux;
- 
-//  else Bp=0;  //ALE: Debugg . los top predators no procrean...
-//  Bp=1;
-// 	return(Bp*0.73);
-// 	return(Bp*1.0);
-	return(Bp*1.0);//return(Bp*0.5 a 0.6, 0.9);
+	Bp=1.0-this->_Sites.at(st).get_Density(sp); //BASAL, TOP, AND INTERMEDIATE SPECIES
+	if ((num_SpeciesPreys > 0))    Bp*=bx; //TOP AND INTERMEDIATE SPECIES
+	if ((num_SpeciesPredators >0) && (by>0)) Bp*=1.0-by; //BASAL AND INTERMEDIATE SPECIES
+	return(Bp*1.0);
 }
 
 void Dynamic::SOC(int sp, int st)
